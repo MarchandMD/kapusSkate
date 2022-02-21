@@ -1,0 +1,2 @@
+class KapusSkateDevelopment < ApplicationRecord
+end
