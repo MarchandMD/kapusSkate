@@ -12,6 +12,7 @@ default: &default
 
 development:
   <<: *default
+  adapter: sqlite3
   database: db/development.sqlite3
   # database: kapus_skate_development
 
