@@ -1,0 +1,41 @@
+<div class="row border border-1 p-3">
+	<div class="col d-flex justify-content-center">
+		<%= form_with scope: :skate,url: skates_path, local: true do |skate_form|  %>
+			<div>
+				<%= skate_form.label :date %>
+				<%= skate_form.text_field :date %>
+				<%= submit_tag 'submit' %>
+			</div>
+		<% end %>
+	</div>
+</div>
+<div class="row">
+	<div class="col">form 2</div>
+</div>
+<div class="row">
+	<table class="table">
+		<%= form_with scope: :skate, url: skates_path, local: true do |f| %>
+			<tr>
+				<td>
+					<%= f.label :first_label %>
+					<%= f.text_field :first_label %>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<%= f.label :my_check_box, "my_check_box" %>
+					<%= f.check_box :my_check_box %>
+				</td>
+			</tr>
+			<tr>
+				<td>
+				<%= f.radio_button :my_radio, "my_radio" %>
+				<%= f.label :my_radio, "my_radio" %>
+				</td>
+			</tr>
+			<tr>
+				<td><%= f.date_select :bithday %></td>
+			</tr>
+		</table>
+	<% end %>
+</div>
