@@ -1,2 +1,0 @@
-module SkateHelper
-end

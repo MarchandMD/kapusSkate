@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  root 'skates#index'
+  root 'welcome#index'
 
   resources :skates
+  resources :skaters
 end
