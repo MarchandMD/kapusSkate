@@ -6,12 +6,25 @@
 </div>
 <div class="row">
 	<div class="col">
-		<table class="table">
+		<table class="table table-sm">
+		<tr>
+			<th>date</th>
+			<th>id</th>
+			<th>creation date</th>
+			<th>updated on</th>
+			<th></th>
+			<th></th>
+		</tr>
 			<% @skates.each do |skate| %>
 				<tr>
 					<td>
 						<%= skate.date %>
 					</td>
+					<td><%= skate.id %></td>
+					<td><%= skate.created_at.strftime("%m-%d-%Y") %></td>
+					<td><%= skate.updated_at.strftime "%m-%d-%y" %></td>
+					<td>edit</td>
+					<td>delete</td>
 				</tr>
 			<% end %>
 		</table>
