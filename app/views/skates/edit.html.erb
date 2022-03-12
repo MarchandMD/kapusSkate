@@ -1,0 +1,21 @@
+<h1>Edit Skate</h1>
+<div class="row border border-1">
+	<div class="col">
+		<table class="table">
+			<%= form_with model: @skate, local: true do |f| %>
+				<tr>
+					<td><%= f.label :date %></td>
+				</tr>
+				<tr>
+					<td><%= f.date_select :date %></td>
+				</tr>
+				<tr>
+					<td>
+						<%= f.submit 'add skate' %>
+					</td>
+				</tr>
+			<% end %>
+		</table>
+	</div>
+</div>
+<%= link_to 'Skates', skates_path %>

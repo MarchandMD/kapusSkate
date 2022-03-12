@@ -1,29 +1,27 @@
 <div class="row">
 	<h1>Skates</h1>
 	<div class="col">
-	<%= link_to 'add a skate', new_skate_path %>
+		<%= link_to 'add a skate', new_skate_path %>
 	</div>
 </div>
 <div class="row">
 	<div class="col">
-		<table class="table table-sm">
-		<tr>
-			<th>date</th>
-			<th>id</th>
-			<th>creation date</th>
-			<th>updated on</th>
-			<th></th>
-			<th></th>
-		</tr>
+		<table class="table table-sm" data-toggle="table" data-url="data1.json">
+			<tr>
+				<th><%= link_to 'date', :sort => 'date' %></th>
+				<th><%= link_to 'id', :sort => 'id' %></th>
+				<th><%= link_to 'creation_date', :sort => 'created_at' %></th>
+				<th><%= link_to 'updated_on', :sort => 'updated_at' %></th>
+				<th></th>
+				<th></th>
+			</tr>
 			<% @skates.each do |skate| %>
 				<tr>
-					<td>
-						<%= skate.date %>
-					</td>
+					<td><%= skate.date %></td>
 					<td><%= skate.id %></td>
 					<td><%= skate.created_at.strftime("%m-%d-%Y") %></td>
 					<td><%= skate.updated_at.strftime "%m-%d-%y" %></td>
-					<td>edit</td>
+					<td><%= link_to 'edit', edit_skate_path(skate) %></td>
 					<td>delete</td>
 				</tr>
 			<% end %>

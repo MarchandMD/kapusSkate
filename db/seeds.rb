@@ -7,9 +7,3 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 Skater.destroy_all
-
-40.times do |index|
-  Skater.create!(name: Faker::Name.name, phone: Faker::PhoneNumber.cell_phone, email: Faker::Internet.email)
-end
-
-p "Created #{Skater.count} skaters"

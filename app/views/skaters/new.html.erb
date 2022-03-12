@@ -1,0 +1,12 @@
+<h1>Skaters#new</h1>
+<p>Find me in app/views/skaters/new.html.erb</p>
+<div class="row border border-1">
+	<div class="col-6 border border-1 p-2 d-flex justify-content-center mx-auto">
+		<%= form_with model: @skater, url: skaters_path, local: true, class: 'border border-1 p-2' do |f| %>
+      <p><%= f.label :name %>: <%= f.text_field :name %></p>
+      <p><%= f.label :email %>: <%= f.text_field :email%></p>
+      <p> <%= f.label :phone %>: <%= f.text_field :phone %></p>
+      <p><%= f.submit %></p>
+    <% end %>
+	</div>
+</div>
