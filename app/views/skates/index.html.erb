@@ -1,7 +1,7 @@
 <div class="row">
-	<h1>Skates</h1>
+	<h1 class="display-2">Upcoming skates:</h1>
 	<div class="col">
-		<table class="table bg-light">
+		<table class="table table-borderless">
 			<%= form_with model: @skate, local: true do |f| %>
 				<tr>
 					<td class="d-flex justify-content-evenly">add a skate: <%= f.date_field :date %>  <%= f.submit 'add skate' %></td>

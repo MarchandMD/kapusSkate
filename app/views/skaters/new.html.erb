@@ -3,6 +3,9 @@
 		<%= form_with model: @skater, url: skaters_path, local: true, class: 'border border-1 p-2 p-md-3 rounded-3 bg-light' do |f| %>
 			<h1 class="display-6 p-3">Sign up to reserve a spot</h1>
 			<div class="form-floating mb-3">
+				<p><%= f.label :which_skate %>:</p><p> <%= f.text_field :which_skate %></p>
+			</div>
+			<div class="form-floating mb-3">
 				<%= f.text_field :name, class: 'form-control form-control-lg', placeholder: 'name' %><%= f.label :name, class: 'floatingInput' %>
 			</div>
 			<div class="form-floating mb-3">
