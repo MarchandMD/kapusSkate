@@ -3,4 +3,5 @@ Rails.application.routes.draw do
 
   resources :skates
   resources :skaters
+  get '/about/index', to: 'about#index', as: 'about'
 end

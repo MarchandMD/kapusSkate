@@ -1,6 +1,7 @@
 class SkatesController < ApplicationController
   def index
     @skates = Skate.order(params[:sort])
+    @skate = Skate.new
   end
 
   def new
@@ -19,7 +20,7 @@ class SkatesController < ApplicationController
     @skate = Skate.new(skate_params)
 
     @skate.save
-    redirect_to root_path
+    redirect_to skates_path
   end
 
   def update
@@ -30,6 +31,13 @@ class SkatesController < ApplicationController
     else
       render 'edit'
     end
+  end
+
+  def destroy
+    @skate = Skate.find(params[:id])
+    @skate.destroy
+
+    redirect_to skates_path
   end
 
   private

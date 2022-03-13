@@ -1,28 +1,30 @@
 <div class="row">
 	<h1>Skates</h1>
 	<div class="col">
-		<%= link_to 'add a skate', new_skate_path %>
+		<table class="table bg-light">
+			<%= form_with model: @skate, local: true do |f| %>
+				<tr>
+					<td class="d-flex justify-content-evenly">add a skate: <%= f.date_field :date %>  <%= f.submit 'add skate' %></td>
+				</tr>
+			<% end %>
+		</table>
 	</div>
 </div>
 <div class="row">
 	<div class="col">
-		<table class="table table-sm" data-toggle="table" data-url="data1.json">
+		<table class="table table-sm table-hover">
 			<tr>
 				<th><%= link_to 'date', :sort => 'date' %></th>
 				<th><%= link_to 'id', :sort => 'id' %></th>
-				<th><%= link_to 'creation_date', :sort => 'created_at' %></th>
-				<th><%= link_to 'updated_on', :sort => 'updated_at' %></th>
 				<th></th>
 				<th></th>
 			</tr>
 			<% @skates.each do |skate| %>
 				<tr>
-					<td><%= skate.date %></td>
+					<td><%= skate.date.strftime("%a %b %d, %Y") %></td>
 					<td><%= skate.id %></td>
-					<td><%= skate.created_at.strftime("%m-%d-%Y") %></td>
-					<td><%= skate.updated_at.strftime "%m-%d-%y" %></td>
 					<td><%= link_to 'edit', edit_skate_path(skate) %></td>
-					<td>delete</td>
+					<td><%= link_to 'delete', skate_path(skate), method: :delete, data: {confirm: 'are you sure?'} %></td>
 				</tr>
 			<% end %>
 		</table>

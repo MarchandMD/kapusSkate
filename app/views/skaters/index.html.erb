@@ -1,15 +1,25 @@
 <div class="container">
-	<div class="row">
-		<div class="col-2">
-			add a skater or whatever
+	<div class="row justify-content-center">
+		<div class="col-2 p-3">
 			<%= link_to 'create a skater', new_skater_path, class: 'btn btn-primary' %>
 		</div>
 	</div>
-	<div class="row border border-1 flex-column">
-		<% @skaters.each do |skater| %>
-			<div class="col border border-1 d-flex justify-content-center">
-				<%= skater.name %>
-			</div>
-		<% end %>
+	<div class="row justify-content-center">
+		<div class="col">
+			<table class="table table-sm">
+				<tr>
+					<th>Name</th>
+					<th>Level</th>
+					<th>Skates attended</th>
+				</tr>
+				<% @skaters.each do |skater| %>
+					<tr>
+						<td>
+							<%= skater.name %>
+						</td>
+					</tr>
+				<% end %>
+			</table>
+		</div>
 	</div>
 </div>
