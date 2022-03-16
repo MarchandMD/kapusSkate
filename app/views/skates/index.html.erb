@@ -21,7 +21,7 @@
 			</tr>
 			<% @skates.each do |skate| %>
 				<tr>
-					<td><%= skate.date.strftime("%a %b %d, %Y") %></td>
+					<td><%= link_to "#{skate.date.strftime('%a %b %d, %Y')}", skate_path(skate.id), class: "text-decoration-none" %></td>
 					<td><%= skate.id %></td>
 					<td><%= link_to 'edit', edit_skate_path(skate) %></td>
 					<td><%= link_to 'delete', skate_path(skate), method: :delete, data: {confirm: 'are you sure?'} %></td>

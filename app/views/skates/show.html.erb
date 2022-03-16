@@ -1,1 +1,11 @@
-<%= @skate.inspect %>
+<div class="container border border-1">
+	<div class="row">
+		<div class="col">
+			<h3>Details for <%= @skate.date.strftime('%A, %B %e, %Y') %></h3>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col"><%= @skate.inspect %></div>
+	</div>
+</div>
+
