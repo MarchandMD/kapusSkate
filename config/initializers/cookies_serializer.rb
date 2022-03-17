@@ -4,6 +4,5 @@
 # Valid options are :json, :marshal, and :hybrid.
 Rails.application.config.action_dispatch.cookies_serializer = :json
 
-# Rails.application.config.session_store :cookie_store, key: '_kapus_skate_session', secure: Rails.env.production?
+# Rails.application.config.action_dispatch.cookies_same_site_protection = :lax
 
-# Rails.application.config.session_store :cookie_store, key: '_kapus_skate_session', samesite: true,  secure: Rails.env.development?
