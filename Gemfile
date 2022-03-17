@@ -58,5 +58,3 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem "faker", "~> 2.19"
 
-
-gem "rails_same_site_cookie", "~> 0.1.9"
