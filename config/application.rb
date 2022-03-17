@@ -15,5 +15,7 @@ module KapusSkate
     # Application configuration can go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded after loading
     # the framework and any gems in your application.
+
+    # Rails.application.config.action_dispatch.cookies_same_site_protection = :strict
   end
 end
