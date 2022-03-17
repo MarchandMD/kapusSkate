@@ -2,6 +2,16 @@
 	<div class="col">
 		<table class="table">
 			<%= form_with model: @skate, local: true do |f| %>
+				<% if @skate.errors.any? %>
+					<div id="error_explanation">
+						<h2><%= pluralize(@skate.errors.count, "error") %> prohibited this skate from being saved: </h2>
+						<ul>
+							<% @skate.errors.full_messages.each do |msg| %>
+								<li><%= msg %></li>
+							<% end %>
+						</ul>
+					</div>
+				<% end%>
 				<tr>
 					<td><%= f.label :date %></td>
 				</tr>

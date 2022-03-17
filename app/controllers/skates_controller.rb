@@ -19,8 +19,11 @@ class SkatesController < ApplicationController
   def create
     @skate = Skate.new(skate_params)
 
-    @skate.save
-    redirect_to skates_path
+    if @skate.save
+      redirect_to @skate
+    else
+      render 'new'
+    end
   end
 
   def update

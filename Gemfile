@@ -6,7 +6,7 @@ ruby '2.7.2'
 gem 'bootstrap', '~> 5.1', '>= 5.1.3'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
-gem 'rails', '~> 6.0.4', '>= 6.0.4.4'
+gem 'rails', '~> 6.1.1', '>= 6.1.1'
 # Use sqlite3 as the database for Active Record
 # gem 'sqlite3', '~> 1.4'
 gem 'pg'

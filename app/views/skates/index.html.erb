@@ -1,14 +1,10 @@
 <div class="row">
+<div class="col">
 	<h1 class="display-2">Upcoming skates:</h1>
 	<div class="col">
-		<table class="table table-borderless">
-			<%= form_with model: @skate, local: true do |f| %>
-				<tr>
-					<td class="d-flex justify-content-evenly">add a skate: <%= f.date_field :date %>  <%= f.submit 'add skate' %></td>
-				</tr>
-			<% end %>
-		</table>
+		<%= link_to 'Add a skate', new_skate_path, class: 'btn btn-primary' %>
 	</div>
+</div>
 </div>
 <div class="row">
 	<div class="col">
