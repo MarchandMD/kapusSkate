@@ -1,6 +1,6 @@
 class SkatesController < ApplicationController
   def index
-    @skates = Skate.order(params[:sort])
+    @skates = Skate.where(params[:sort])
     @skate = Skate.new
   end
 

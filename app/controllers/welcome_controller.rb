@@ -1,6 +1,7 @@
 class WelcomeController < ApplicationController
   def index
-    @skate = Skate.first
+    today = Time.now.to_s.split[0]
+    @skate = Skate.find_by "date > ?", today
     @skaters = Skater.all
   end
 end
