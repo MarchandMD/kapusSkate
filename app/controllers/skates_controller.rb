@@ -1,6 +1,7 @@
 class SkatesController < ApplicationController
   def index
-    @skates = Skate.where(params[:sort])
+    today = Time.now.to_s.split[0]
+    @skates = Skate.order(:date).where 'date >= ?', today
     @skate = Skate.new
   end
 

@@ -10,18 +10,18 @@
 	<div class="col">
 		<table class="table table-sm table-hover">
 			<tr>
-				<th><%= link_to 'date', :sort => 'date' %></th>
-				<th><%= link_to 'id', :sort => 'id' %></th>
+				<th><%# link_to 'date', :sort => 'date' %>date</th>
+				<th><%# link_to 'id', :sort => 'id' %>id</th>
 				<th></th>
 				<th></th>
 			</tr>
 			<% @skates.each do |skate| %>
-				<tr><% if skate.date >= Time.now %>
+				<tr><%# if skate.date >= Time.now.to_s.split[0] %>
 					<td><%= link_to "#{skate.date.strftime('%a %b %d, %Y')}", skate_path(skate.id), class: "text-decoration-none" %></td>
 					<td><%= skate.id %></td>
 					<td><%= link_to 'edit', edit_skate_path(skate) %></td>
 					<td><%= link_to 'delete', skate_path(skate), method: :delete, data: {confirm: 'are you sure?'} %></td>
-				</tr><% end %>
+				</tr><%# end %>
 			<% end %>
 		</table>
 	</div>
