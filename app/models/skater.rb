@@ -1,5 +1,3 @@
 class Skater < ApplicationRecord
-  belongs_to :skate
-
-  validates :name, presence: true
+  belongs_to :skate, optional: true
 end

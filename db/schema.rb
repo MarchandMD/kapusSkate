@@ -10,30 +10,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_03_22_034323) do
-
+ActiveRecord::Schema.define(version: 20_220_322_034_323) do
   # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
+  enable_extension 'plpgsql'
 
-  create_table "kapus_skate_developments", force: :cascade do |t|
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+  create_table 'kapus_skate_developments', force: :cascade do |t|
+    t.datetime 'created_at', precision: 6, null: false
+    t.datetime 'updated_at', precision: 6, null: false
   end
 
-  create_table "skaters", force: :cascade do |t|
-    t.string "name"
-    t.string "phone"
-    t.string "email"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.bigint "skate_id"
-    t.index ["skate_id"], name: "index_skaters_on_skate_id"
+  create_table 'skaters', force: :cascade do |t|
+    t.string 'name'
+    t.string 'phone'
+    t.string 'email'
+    t.datetime 'created_at', precision: 6, null: false
+    t.datetime 'updated_at', precision: 6, null: false
+    t.bigint 'skate_id'
+    t.index ['skate_id'], name: 'index_skaters_on_skate_id'
   end
 
-  create_table "skates", force: :cascade do |t|
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.date "date"
+  create_table 'skates', force: :cascade do |t|
+    t.datetime 'created_at', precision: 6, null: false
+    t.datetime 'updated_at', precision: 6, null: false
+    t.date 'date'
   end
-
 end

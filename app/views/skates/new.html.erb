@@ -1,7 +1,7 @@
 <div class="row border border-1">
 	<div class="col">
-		<table class="table">
 			<%= form_with model: @skate, local: true do |f| %>
+		<table class="table">
 				<% if @skate.errors.any? %>
 					<div id="error_explanation">
 						<h2><%= pluralize(@skate.errors.count, "error") %> prohibited this skate from being saved: </h2>
@@ -12,18 +12,10 @@
 						</ul>
 					</div>
 				<% end%>
-				<tr>
-					<td><%= f.label :date %></td>
-				</tr>
-				<tr>
-					<td><%= f.date_field :date %></td>
-				</tr>
-				<tr>
-					<td>
-						<%= f.submit 'add skate' %>
-					</td>
-				</tr>
-			<% end %>
+				<%= f.label :date %>
+				<%= f.date_field :date %>
+				<%= f.submit 'add skate' %>
 		</table>
+			<% end %>
 	</div>
 </div>

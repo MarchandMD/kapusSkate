@@ -19,3 +19,22 @@
 	</div>
 </div>
 <%= link_to 'Skates', skates_path %>
+
+<h1>add a skater</h1>
+<div class="row border border-1">
+	<div class="col">
+		<div class="table">
+			<%= form_with model: @skater, url: skate_path, local: true do |f| %>
+			<tr>
+				<td><%= f.collection_select :skater_id, Skater.order(:name), :id, :name %></td>
+			</tr>
+			<tr>
+				<td>
+					<%= f.submit 'add skater' %>
+					
+				</td>
+			</tr>
+			<% end%>
+		</div>
+	</div>
+</div>

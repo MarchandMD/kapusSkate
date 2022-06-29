@@ -1,11 +1,47 @@
 <div class="container border border-1">
-	<div class="row">
-		<div class="col">
-			<h3>Details for <%= @skate.date.strftime('%A, %B %e, %Y') %></h3>
-		</div>
-	</div>
-	<div class="row">
-		<div class="col"><%= @skate.inspect %></div>
-	</div>
+  <div class="row">
+    <div class="col">
+      <h3>Details for <%= @skate.date.strftime('%A, %B %e, %Y') %></h3>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col"><%= @skate.inspect %></div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <%= @skate.skaters.count %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <div class="table-responsive">
+        <table class="table table-sm">
+          <tr>
+            <th>number</th>
+            <th>method</th>
+            <th>output</th>
+            <th>What is happening:</th>
+          </tr>
+          <tr>
+            <td>1</td>
+            <td>Skate.skaters</td>
+            <td><%= @skaters %></td>
+            <td>It appears that this method is like the base method which returns an ActiveRecord_Associations_CollectionProxy object; which makes sense; i'm calling the `Skate.skaters` which should list the skaters for a skate</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td><%= render plain: '@skate.skaters << @skater1(input hash)' %> </td>
+            <td><%= render plain: "should be something like: @skaters << Skater.new(name: 'rolad')"%></td>
+            <td>this is a shovel operator, which I definitely know how to use</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td><%= render plain: '@skate.skaters.delete(@skater1)' %> </td>
+            <td><%= render plain: "I don't know what the output will be, but the skater would be deleted from the specific instance of the Skate; But I also want to speak in more general terms; What I could do is I could have an instance of a single object...which has many other objects. Doing the `delete` method would remove one of those many objects from the single associated object, if that makes sense; so i'm calling #delete on the many_objects variable"%></td>
+            <td>see the previous column, lol</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
 </div>
-

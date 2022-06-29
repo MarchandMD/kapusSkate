@@ -2,7 +2,7 @@
 	<div class="col-lg-7 text-center text-lg-start">
 		<div class="display-3 fw-bold">Kapus Skate</div>
 		<h5 class="text-muted">Apex Center in Arvada, CO</h5>
-		<p class="fs-3">Next skate: <%= @skate.date.strftime("%A %B %d, %Y") %></p>
+		<p class="fs-3">Next skate: <%= @next_skate.date.strftime("%A %B %d, %Y") %></p>
 		<p class="col-lg-10">Total skaters for next skate: <%= @skaters.count %><small> (as of <%= Time.now.strftime("%-m/%d %H:%M%P") %>)</small> </p>
 		<p class="col-lg-10 fs-5"></p>
 		<p class="col-lg-10 fs-5">2 goalies confirmed: True</p>
