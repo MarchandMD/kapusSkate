@@ -1,33 +1,33 @@
 <div class="container">
-	<div class="row justify-content-center">
-		<div class="col-2 p-3">
-			<%= link_to 'create a skater', new_skater_path, class: 'btn btn-primary' %>
-		</div>
-	</div>
-	<div class="row justify-content-center">
-		<div class="col">
-			<table class="table table-sm">
-				<tr>
-					<th>Name</th>
-					<th>Level</th>
-					<th>Skates attended</th>
-					<th>date created</th>
-					<th>edit</th>
-					<th>delete</th>
-				</tr>
-				<% @skaters.each do |skater| %>
-					<tr>
-						<td>
-							<%= skater.name %>
-						</td>
-						<td>one</td>
-						<td>two</td>
-						<td><%= skater.created_at.strftime("%B %d, %Y -- %I:%M:%S %P") %></td>
-						<td>edit</td>
-						<td><%= link_to 'delete', skater_path(skater), method: :delete, data: {confirm: 'Are you sure?'} %></td>
-					</tr>
-				<% end %>
-			</table>
-		</div>
-	</div>
+  <div class="row justify-content-center">
+    <div class="col-2 p-3">
+      <%= link_to 'create a skater', new_skater_path, class: 'btn btn-primary' %>
+    </div>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col">
+      <table class="table table-sm">
+        <tr>
+          <th>Name</th>
+          <th>Level</th>
+          <th>Skates attended</th>
+          <th>date created</th>
+          <th>edit</th>
+          <th>delete</th>
+        </tr>
+        <% @skaters.each do |skater| %>
+          <tr>
+            <td>
+              <%= skater.name %>
+            </td>
+            <td>one</td>
+            <td>two</td>
+            <td><%= skater.created_at.strftime("%B %d, %Y -- %I:%M:%S %P") %></td>
+            <td><%= link_to 'edit', edit_skater_path(skater), method: :get %></td>
+            <td><%= link_to 'delete', skater_path(skater), method: :delete, data: {confirm: 'Are you sure?'} %></td>
+          </tr>
+        <% end %>
+      </table>
+    </div>
+  </div>
 </div>

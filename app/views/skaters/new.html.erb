@@ -1,33 +1,35 @@
 <div class="row">
   <div class="col-6 p-2 d-flex justify-content-center mx-auto">
-    <%= form_with model: @skater, url: skaters_path, local: true, class: 'border border-1 p-2 p-md-3 rounded-3 bg-light' do |f| %>
-      <h1 class="display-6 p-3">Sign up to reserve a spot</h1>
-      <div class="form-floating mb-3">
-        <%= f.text_field :name, class: 'form-control form-control-lg', placeholder: 'name' %><%= f.label :name, class: 'floatingInput' %>
-        <% @skater.errors.full_messages.each do |message| %>
-          <%= message %>
-        <% end %>
+    <%= render 'partials/skater_signup' %>
+  </div>
+</div>
+<div class="row">
+  <div class="col-6 p-2 d-flex justify-content-center mx-auto border border-1">
+    <p>using `form_tag`</p>
+    <p>So as far as I can tell just collect some information on the form, and return it to the client</p>
+    <p>I also want to learn about how to style these things; first thing, just do a naked form, not contained by anything</p>
+  </div>
+</div>
+<div class="row">
+  <div class="col-6 p-2 d-flex justify-content-center mx-auto border border-1">
+    <%= form_tag("/skaters", method: :get) do %>
+      <div>
+        <%= button_tag 'button', disabled: true %>
       </div>
-      <div class="form-floating mb-3">
-        <%= f.text_field :email, class: 'form-control form-control-lg', placeholder: 'email' %><%= f.label :email, class: 'floatingInput' %>
+      <div>
+        <%= check_box_tag 'rock', 'rock music', true %>
       </div>
-      <div class="form-floating mb-3"><%= f.text_field :phone, class: 'form-control form-control-lg', placeholder: 'phone' %><%= f.label :phone, class: 'floatingInput' %></div>
-      <p><%= f.submit 'sign up', class: 'btn btn-primary' %></p>
-      <hr>
-      <p class="text-muted">by signing up, you're gonna try your hardest to actually show up and not flake out</p>
+      <div><%= label_tag 'Title' %></div>
+      <div><%= color_field_tag 'name' %></div>
+      <div><%= submit_tag 'save changes' %></div>
     <% end %>
   </div>
 </div>
 <div class="row">
-  <div class="col-6 p-2 d-flex justify-content-center mx-auto">
-    <%= form_with model: @skater, url: skaters_path, local: true do |f|  %>
-      <div>
-        <%= f.label :name %>
-        <%= f.text_field :name %>
-      </div>
-      <div>
-        <%= f.submit %>
-      </div>
+  <div class="col-6 p-2 d-flex justify-content-center mx-auto border border-1">
+    <%= form_for :skater do |f| %>
+      <%= f.text_field :name %>
+      <%= f.submit %>
     <% end %>
   </div>
 </div>
