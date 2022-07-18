@@ -21,7 +21,19 @@ class SkatersController < ApplicationController
     end
   end
 
-  def edit; end
+  def edit
+    @skater = Skater.find(params[:id])
+  end
+
+  def update
+    @skater = Skater.find(params[:id])
+
+    if @skater.update(skater_params)
+      redirect_to skaters_path
+    else
+      render :edit
+    end
+  end
 
   def destroy
     @skater = Skater.find(params[:id])
@@ -32,6 +44,6 @@ class SkatersController < ApplicationController
   private
 
   def skater_params
-    params.require(:skater).permit("name", "email", "phone")
+    params.require(:skater).permit('name', 'email', 'phone')
   end
 end
