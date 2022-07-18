@@ -3,33 +3,6 @@
     <%= render 'partials/skater_signup' %>
   </div>
 </div>
-<div class="row">
-  <div class="col-6 p-2 d-flex justify-content-center mx-auto border border-1">
-    <p>using `form_tag`</p>
-    <p>So as far as I can tell just collect some information on the form, and return it to the client</p>
-    <p>I also want to learn about how to style these things; first thing, just do a naked form, not contained by anything</p>
-  </div>
-</div>
-<div class="row">
-  <div class="col-6 p-2 d-flex justify-content-center mx-auto border border-1">
-    <%= form_tag("/skaters", method: :get) do %>
-      <div>
-        <%= button_tag 'button', disabled: true %>
-      </div>
-      <div>
-        <%= check_box_tag 'rock', 'rock music', true %>
-      </div>
-      <div><%= label_tag 'Title' %></div>
-      <div><%= color_field_tag 'name' %></div>
-      <div><%= submit_tag 'save changes' %></div>
-    <% end %>
-  </div>
-</div>
-<div class="row">
-  <div class="col-6 p-2 d-flex justify-content-center mx-auto border border-1">
-    <%= form_for :skater do |f| %>
-      <%= f.text_field :name %>
-      <%= f.submit %>
-    <% end %>
-  </div>
-</div>
+
+
+

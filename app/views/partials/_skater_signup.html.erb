@@ -1,4 +1,4 @@
-<%= form_with model: @skater, url: skater_path, local: true, class: 'border border-1 p-2 p-md-3 rounded-3 bg-light' do |f| %>
+<%= form_for @skater, local: true, class: 'border border-1 p-2 p-md-3 rounded-3 bg-light' do |f| %>
   <h1 class="display-6 p-3">Sign up to reserve a spot</h1>
   <div class="form-floating mb-3">
     <%= f.text_field :name, class: 'form-control form-control-lg', placeholder: 'name' %><%= f.label :name, class: 'floatingInput' %>
@@ -10,7 +10,7 @@
     <%= f.text_field :email, class: 'form-control form-control-lg', placeholder: 'email' %><%= f.label :email, class: 'floatingInput' %>
   </div>
   <div class="form-floating mb-3"><%= f.text_field :phone, class: 'form-control form-control-lg', placeholder: 'phone' %><%= f.label :phone, class: 'floatingInput' %></div>
-  <p><%= f.submit 'sign up', class: 'btn btn-primary' %></p>
+  <p><%= f.submit 'submit', class: 'btn btn-primary' %></p>
   <hr>
   <p class="text-muted">by signing up, you're gonna try your hardest to actually show up and not flake out</p>
 <% end %>
