@@ -9,20 +9,22 @@
       <table class="table table-sm">
         <tr>
           <th>Name</th>
-          <th>Level</th>
-          <th>Skates attended</th>
-          <th>date created</th>
+          <th>Username</th>
+          <th>city</th>
+          <th>Skill Level</th>
+          <th>Last Competitive level</th>
+          <th>preferred position</th>
           <th>edit</th>
           <th>delete</th>
         </tr>
         <% @skaters.each do |skater| %>
           <tr>
-            <td>
-              <%= skater.name %>
-            </td>
-            <td>one</td>
-            <td>two</td>
-            <td><%= skater.created_at.strftime("%B %d, %Y -- %I:%M:%S %P") %></td>
+            <td><%= skater.name %></td>
+            <td><%= skater.user_name %></td>
+            <td><%= skater.city %></td>
+            <td><%= skater.skill_level %></td>
+            <td><%= skater.last_level %></td>
+            <td><%= skater.position %></td>
             <td><%= link_to 'edit', edit_skater_path(skater), method: :get %></td>
             <td><%= link_to 'delete', skater_path(skater), method: :delete, data: {confirm: 'Are you sure?'} %></td>
           </tr>

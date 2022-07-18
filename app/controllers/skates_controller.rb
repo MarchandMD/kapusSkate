@@ -22,7 +22,7 @@ class SkatesController < ApplicationController
     @skate = Skate.new(skate_params)
 
     if @skate.save
-      redirect_to @skate
+      redirect_to skates_path
     else
       render 'new'
     end

@@ -1,21 +1,6 @@
-<div class="row border border-1">
-	<div class="col">
-			<%= form_with model: @skate, local: true do |f| %>
-		<table class="table">
-				<% if @skate.errors.any? %>
-					<div id="error_explanation">
-						<h2><%= pluralize(@skate.errors.count, "error") %> prohibited this skate from being saved: </h2>
-						<ul>
-							<% @skate.errors.full_messages.each do |msg| %>
-								<li><%= msg %></li>
-							<% end %>
-						</ul>
-					</div>
-				<% end%>
-				<%= f.label :date %>
-				<%= f.date_field :date %>
-				<%= f.submit 'add skate' %>
-		</table>
-			<% end %>
-	</div>
+<div class="row">
+  <div class="col">
+    <h2>Add a skate using the form below</h2>
+    <%= render 'partials/skates' %>
+  </div>
 </div>

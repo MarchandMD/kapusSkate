@@ -1,4 +1,4 @@
-<%= form_for @skater, local: true, class: 'border border-1 p-2 p-md-3 rounded-3 bg-light' do |f| %>
+<%= form_for @skater, local: true do |f| %>
   <h1 class="display-6 p-3">Sign up to reserve a spot</h1>
   <div class="form-floating mb-3">
     <%= f.text_field :name, class: 'form-control form-control-lg', placeholder: 'name' %><%= f.label :name, class: 'floatingInput' %>
@@ -6,11 +6,52 @@
       <%= message %>
     <% end %>
   </div>
+
+    <div class="form-floating mb-3">
+    <%= f.text_field :user_name, class: 'form-control form-control-lg', placeholder: 'user_name' %><%= f.label :user_name, class: 'floatingInput' %>
+  </div>
+
   <div class="form-floating mb-3">
     <%= f.text_field :email, class: 'form-control form-control-lg', placeholder: 'email' %><%= f.label :email, class: 'floatingInput' %>
   </div>
-  <div class="form-floating mb-3"><%= f.text_field :phone, class: 'form-control form-control-lg', placeholder: 'phone' %><%= f.label :phone, class: 'floatingInput' %></div>
+
+  <div class="form-floating mb-3">
+    <%= f.text_field :phone, class: 'form-control form-control-lg', placeholder: 'phone' %><%= f.label :phone, class: 'floatingInput' %>
+  </div>
+
+<div class="form-floating mb-3">
+    <%= f.text_field :city, class: 'form-control form-control-lg', placeholder: 'city' %><%= f.label :city, class: 'floatingInput' %>
+  </div>
+
+  <div class="row mb-3">
+    <div class="col-sm-4">
+      <%= f.label :skill_level %>
+    </div>
+    <div class="col-sm-8">
+      <%= f.select :skill_level, 1..10,  class: 'form-control form-control-lg', placeholder: 'skill_level' %>
+    </div>
+  </div>
+  <div class="row mb-3">
+    <div class="col-sm-4">
+      <%= f.label :position %>
+    </div>
+    <div class="col-sm-8">
+      <%= f.select :position, options_for_select(['forward', 'defense', 'goalie', 'just get me on the ice']), class: 'form-control form-control-lg', placeholder: 'position' %>
+    </div>
+  </div>
+
+  <div class="row mb-3">
+    <div class="col-sm-4">
+      <%= f.label :last_level %>
+    </div>
+    <div class="col-sm-8">
+      <%= f.select :last_level, options_for_select(['beginner', 'mens league', 'mite', 'squirt', 'peewee', 'bantaam', 'high school', 'juniors', 'college', 'pro', 'legend']), class: 'form-control form-control-lg', placeholder: 'last_level' %>
+    </div>
+  </div>
+
+  <div class="form mb-3">
+  </div>
   <p><%= f.submit 'submit', class: 'btn btn-primary' %></p>
   <hr>
-  <p class="text-muted">by signing up, you're gonna try your hardest to actually show up and not flake out</p>
+  <p class="text-muted">by signing up you're gonna try your hardest to actually show up</p>
 <% end %>

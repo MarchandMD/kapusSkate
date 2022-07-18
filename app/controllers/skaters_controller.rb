@@ -44,6 +44,6 @@ class SkatersController < ApplicationController
   private
 
   def skater_params
-    params.require(:skater).permit('name', 'email', 'phone')
+    params.require(:skater).permit('name', 'email', 'phone', 'skill_level', 'position', 'user_name', 'city', 'last_level')
   end
 end
