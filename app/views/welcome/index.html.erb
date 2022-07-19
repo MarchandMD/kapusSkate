@@ -2,52 +2,7 @@
 	<div class="col-lg-7 text-center text-lg-start">
 		<div class="display-3 fw-bold">Kapus Skate</div>
 		<h5 class="text-muted">Apex Center in Arvada, CO</h5>
-		<p class="fs-3">Next skate: <%= @next_skate.date.strftime("%A %B %d, %Y") %></p>
-		<p class="col-lg-10">Total skaters for next skate: <%= @skaters.count %><small> (as of <%= Time.now.strftime("%-m/%d %H:%M%P") %>)</small> </p>
-		<p class="col-lg-10 fs-5"></p>
-		<p class="col-lg-10 fs-5">2 goalies confirmed: True</p>
-		<p class="col-lg-10 fs-6">Send payment to: steveGonzalesVenmoOrWhatever</p>
-		<table class="table">
-			<tr>
-				<th>White Team</th>
-				<th>Black Team</th>
-			</tr>
-			<tr>
-				<td>Steve Gonzalez</td>
-				<td>Ira Gorman</td>
-			</tr>
-			<tr>
-				<td>Jeff Shaver</td>
-				<td>Kevin Lowe</td>
-			</tr>
-			<tr>
-				<td>Aaron Shapiro</td>
-				<td>Good Juan</td>
-			</tr>
-			<tr>
-				<td>Kenny Higdon</td>
-				<td>Butters</td>
-			</tr>
-			<tr>
-				<td>Mark Messier</td>
-				<td>Sidney Crosby</td>
-			</tr>
-			<tr>
-				<td>Joe Jones</td>
-			</tr>
-			<tr>
-				<td>Patrick Kane</td>
-			</tr>
-		</table>
-		<table class="table">
-			<tr>
-				<th>Confirmed Goalies</th>
-			</tr>
-			<tr>
-				<td>Patrick Roy</td>
-				<td>Ed Belfour</td>
-			</tr>
-		</table>
+		<%= render 'partials/skate_details' %>
 	</div>
 	<%= render partial: 'partials/homepg_signup' %>
 </div>
