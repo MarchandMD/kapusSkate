@@ -13,6 +13,7 @@
           <th>city</th>
           <th>Skill Level</th>
           <th>Last Competitive level</th>
+          <th>Years going to Kapus</th>
           <th>preferred position</th>
           <th>edit</th>
           <th>delete</th>
@@ -24,6 +25,7 @@
             <td><%= skater.city %></td>
             <td><%= skater.skill_level %></td>
             <td><%= skater.last_level %></td>
+            <td><%= skater.years   %></td>
             <td><%= skater.position %></td>
             <td><%= link_to 'edit', edit_skater_path(skater), method: :get %></td>
             <td><%= link_to 'delete', skater_path(skater), method: :delete, data: {confirm: 'Are you sure?'} %></td>

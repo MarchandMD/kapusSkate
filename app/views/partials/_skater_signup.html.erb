@@ -1,34 +1,60 @@
 <%= form_for @skater, local: true do |f| %>
+  <% @skater.errors.full_messages.each do |message| %>
+    <%= message %>
+  <% end %>
   <h1 class="display-6 p-3">Sign up to reserve a spot</h1>
+  <div class="form mb-3">
+    <div class="row">
+      <div class="col-sm-4">
+        <%= f.label :name %>
+      </div>
+      <div class="col-sm-8">
+        <%= f.text_field :name, class: 'form-control form-control-lg' %>
+      </div>
+    </div>
+  </div>
   <div class="form-floating mb-3">
-    <%= f.text_field :name, class: 'form-control form-control-lg', placeholder: 'name' %><%= f.label :name, class: 'floatingInput' %>
-    <% @skater.errors.full_messages.each do |message| %>
-      <%= message %>
-    <% end %>
+    <div class="row">
+      <div class="col-sm-4">
+        <%= f.label :user_name %>
+      </div>
+      <div class="col-sm-8">
+        <%= f.text_field :user_name, class: 'form-control form-control-lg' %>
+      </div>
+    </div>
   </div>
-
-    <div class="form-floating mb-3">
-    <%= f.text_field :user_name, class: 'form-control form-control-lg', placeholder: 'user_name' %><%= f.label :user_name, class: 'floatingInput' %>
+  <div class="row mb-3">
+    <div class="col-sm-4">
+      <%= f.label :email %>
+    </div>
+    <div class="col-sm-8">
+      <%= f.text_field :email, class: 'form-control form-control-lg' %>
+    </div>
   </div>
-
-  <div class="form-floating mb-3">
-    <%= f.text_field :email, class: 'form-control form-control-lg', placeholder: 'email' %><%= f.label :email, class: 'floatingInput' %>
+  <div class="row mb-3">
+    <div class="col-sm-4">
+      <%= f.label :phone %>
+    </div>
+    <div class="col-sm-8">
+      <%= f.text_field :phone, class: 'form-control form-control-lg' %>
+    </div>
   </div>
-
-  <div class="form-floating mb-3">
-    <%= f.text_field :phone, class: 'form-control form-control-lg', placeholder: 'phone' %><%= f.label :phone, class: 'floatingInput' %>
+  <div class="row">
+    <div class="col-sm-4">
+      <%= f.label :city %>
+    </div>
+    <div class="col-sm-8">
+      <%= f.text_field :city, class: 'form-control form-control-lg' %>
+    </div>
   </div>
-
-<div class="form-floating mb-3">
-    <%= f.text_field :city, class: 'form-control form-control-lg', placeholder: 'city' %><%= f.label :city, class: 'floatingInput' %>
+  <div class="f mb-3">
   </div>
-
   <div class="row mb-3">
     <div class="col-sm-4">
       <%= f.label :skill_level %>
     </div>
     <div class="col-sm-8">
-      <%= f.select :skill_level, 1..10,  class: 'form-control form-control-lg', placeholder: 'skill_level' %>
+      <%= f.select :skill_level, 1..10, {}, {class: 'form-control form-control-lg_level'} %>
     </div>
   </div>
   <div class="row mb-3">
@@ -36,22 +62,31 @@
       <%= f.label :position %>
     </div>
     <div class="col-sm-8">
-      <%= f.select :position, options_for_select(['forward', 'defense', 'goalie', 'just get me on the ice']), class: 'form-control form-control-lg', placeholder: 'position' %>
+      <%= f.select :position, ['forward', 'defense', 'goalie', 'just get me on the ice'], {}, {class: 'form-control form-control-lg', placeholder: 'position'}  %>
     </div>
   </div>
-
   <div class="row mb-3">
     <div class="col-sm-4">
       <%= f.label :last_level %>
     </div>
     <div class="col-sm-8">
-      <%= f.select :last_level, options_for_select(['beginner', 'mens league', 'mite', 'squirt', 'peewee', 'bantaam', 'high school', 'juniors', 'college', 'pro', 'legend']), class: 'form-control form-control-lg', placeholder: 'last_level' %>
+      <%= f.select :last_level, ['beginner', 'mens league', 'mite', 'squirt', 'peewee', 'bantaam', 'high school', 'juniors', 'college', 'pro', 'legend'], {}, { class: 'form-control form-control-lg', placeholder: 'last_level'} %>
     </div>
   </div>
-
-  <div class="form mb-3">
+  <div class="row mb-3">
+    <div class="col-sm-4">
+      <%= f.label :years_attending_kapus_skate %>
+    </div>
+    <div class="col-sm-8">
+      <%= f.select :years, ['less than 1 year', '1 - 5 years', '5+ years', 'Legend'], {}, {class: 'form-control form-control-lg', placeholder: 'years_attending_kapus_skate'} %>
+    </div>
   </div>
-  <p><%= f.submit 'submit', class: 'btn btn-primary' %></p>
+  <div class="row mb-3">
+    <%= f.submit 'submit', class: 'btn btn-primary' %>
+  </div>
+  <div class="row mb-3">
+    <%= f.button 'cancel', name: 'cancel',  class: 'btn btn-caution' %>
+  </div>
   <hr>
   <p class="text-muted">by signing up you're gonna try your hardest to actually show up</p>
 <% end %>
