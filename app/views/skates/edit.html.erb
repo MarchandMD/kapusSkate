@@ -2,11 +2,4 @@
 <%= render 'partials/skates' %>
 
 <h3>add a skater to the skate</h3>
-<%= form_for @skate, url: skate_path, method: :put,  local: true do |f| %>
-<%= f.label :skaters %>
-	<%= f.text_field :skaters %>
-	<%= fields_for :skaters, @skate.skaters do |skater_field| %>
-	<%= skater_field.text_field :name %>
-	<% end %>
-	<%= f.submit %>
-<% end %>
+<%= render 'partials/skate_signup' %>

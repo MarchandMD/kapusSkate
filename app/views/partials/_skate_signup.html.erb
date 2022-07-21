@@ -1,0 +1,7 @@
+<%= form_for @skate, url: skate_path, method: :put,  local: true do |f| %>
+<%= f.select :date, Skate.all.collect { |x| x.date } %>
+  <%= fields_for :skaters do |skater_field| %>
+    <%= skater_field.select :name, Skater.all.collect { |x| x.name }  %>
+  <% end %>
+  <%= f.submit %>
+<% end %>

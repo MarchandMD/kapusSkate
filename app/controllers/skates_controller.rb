@@ -48,6 +48,7 @@ class SkatesController < ApplicationController
   private
 
   def skate_params
-    params.require(:skate).permit(:date)
+    params.permit(:skate,
+                  :skaters)
   end
 end
