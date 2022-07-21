@@ -21,10 +21,6 @@ class SkatersController < ApplicationController
     end
   end
 
-  def check_for_cancel
-    redirect_to skaters_path if params[:commit] == 'cancel'
-  end
-
   def edit
     @skater = Skater.find(params[:id])
   end
@@ -48,7 +44,6 @@ class SkatersController < ApplicationController
   private
 
   def skater_params
-    params.require(:skater).permit('name', 'email', 'phone', 'skill_level', 'position', 'user_name', 'city',
-                                   'last_level', 'years')
+    params.require(:skater).permit('name', 'email', 'phone', 'skill_level', 'position', 'user_name', 'city', 'last_level', 'years')
   end
 end

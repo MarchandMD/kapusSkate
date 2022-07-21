@@ -6,3 +6,4 @@ rails/bootstrap for Kapus Skate
 - when there is no 'next skate' scheduled, entire app breaks; need to trigger a "tbd" status to be displayed
 - allow users to login
 - create different environments for administration and users
+- create a skater is NOT a signup form

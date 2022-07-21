@@ -1,3 +1,3 @@
 class Skater < ApplicationRecord
-  belongs_to :skate, optional: true
+  has_and_belongs_to_many :skates
 end
