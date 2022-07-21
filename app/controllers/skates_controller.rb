@@ -31,7 +31,7 @@ class SkatesController < ApplicationController
   def update
     @skate = Skate.find(params[:id])
 
-    if @skate.update(skate_params)
+    if @skate.skaters<<(Skater.where("name = '#{skate_params[:plus_one][:name]}'")) || @skate.update(skate_params)
       redirect_to @skate
     else
       render 'edit'
@@ -48,7 +48,6 @@ class SkatesController < ApplicationController
   private
 
   def skate_params
-    params.permit(:skate,
-                  :skaters)
+    params.require(:skate).permit(:date, plus_one: [:name] )
   end
 end
