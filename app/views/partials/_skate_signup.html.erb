@@ -1,7 +1,4 @@
-<%= form_for @skate, url: skate_path, method: :patch,  local: true do |f| %>
+<%= form_with model: @skate, local: true do |f| %>
 <%= f.select :date, Skate.all.collect { |x| x.date } %>
-  <%= f.fields_for :plus_one do |skater_field| %>
-    <%= skater_field.select :name, Skater.all.collect { |x| x.name }  %>
-  <% end %>
   <%= f.submit %>
 <% end %>

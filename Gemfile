@@ -8,7 +8,7 @@ gem 'bootstrap', '~> 5.1', '>= 5.1.3'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
 gem 'rails', '~> 6.1.1', '>= 6.1.1'
 # Use sqlite3 as the database for Active Record
-# gem 'sqlite3', '~> 1.4'
+# gem 'sqlite3', '~> 1.4' 
 gem 'pg'
 # Use Puma as the app server
 gem 'puma', '~> 4.1'
@@ -59,3 +59,14 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem "faker", "~> 2.19"
 
 gem "devise"
+gem "awesome_print", "~> 1.9"
+
+gem "rspec-rails", "~> 5.1", :groups => [:development, :test]
+
+gem "launchy", "~> 2.5", :groups => [:development, :test]
+
+gem "simplecov", "~> 0.21.2", :groups => [:development, :test]
+
+gem "pry", "~> 0.14.1", :groups => [:development, :test]
+
+gem "shoulda-matchers", "~> 5.2", :groups => [:development, :test]
