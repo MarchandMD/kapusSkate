@@ -1,30 +1,31 @@
-<div class="row">
-<div class="col">
-	<h1 class="display-2">Upcoming skates:</h1>
-	<div class="col">
-		<%= link_to 'Add a skate', new_skate_path, class: 'btn btn-primary' %>
-	</div>
+<div class="row justify-content-center">
+  <div class="col col-4">
+    <h2>Upcoming skates</h2>
+    <div class="col">
+    </div>
+  </div>
 </div>
-</div>
-<div class="row">
-	<div class="col">
-		<table class="table table-sm table-hover">
-			<tr>
-				<th><%# link_to 'date', :sort => 'date' %>date</th>
-				<th><%# link_to 'id', :sort => 'id' %>id</th>
-				<th>sign-up</th>
-				<th></th>
-				<th></th>
-			</tr>
-			<% @skates.each do |skate| %>
-				<tr><%# if skate.date >= Time.now.to_s.split[0] %>
-					<td><%= link_to "#{skate.date.strftime('%a %b %d, %Y')}", skate_path(skate.id), class: "text-decoration-none" %></td>
-					<td><%= skate.id %></td>
-					<td></td>
-					<td><%= link_to 'edit', edit_skate_path(skate) %></td>
-					<td><%= link_to 'delete', skate_path(skate), method: :delete, data: {confirm: 'are you sure?'} %></td>
-				</tr><%# end %>
-			<% end %>
-		</table>
-	</div>
+<div class="row justify-content-around">
+  <div class="col-lg-6">
+    <table class="table table-sm table-hover">
+      <% @skates.each do |skate| %>
+        <tr>
+          <td><%= link_to "#{skate.date.strftime('%a %b %d, %Y')}", skate_path(skate.id), class: "text-decoration-none" %></td>
+          <td><%= link_to 'edit', edit_skate_path(skate) %></td>
+          <td><%= link_to 'delete', skate_path(skate), method: :delete, data: {confirm: 'are you sure?'} %></td>
+        </tr>
+      <% end %>
+    </table>
+    <div class="d-flex justify-content-center"><%= link_to 'Add a skate', new_skate_path, class: 'btn btn-primary' %></div>
+  </div>
+  <div class="col-lg-2 bg-light p-3">
+    <table class="table">
+      <th class="text-center">past skates</th>
+      <% @past_skates.each do |skate| %>
+        <tr>
+          <td class="text-center"><%= skate.date.strftime('%a %b %d, %Y') %></td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
 </div>

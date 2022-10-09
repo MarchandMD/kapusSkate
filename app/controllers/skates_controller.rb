@@ -3,6 +3,7 @@ class SkatesController < ApplicationController
     today = Time.now.to_s.split[0]
     @skates = Skate.order(:date).where 'date >= ?', today
     @skate = Skate.new
+    @past_skates = Skate.order(:date).where("date < ?", today)
   end
 
   def new
