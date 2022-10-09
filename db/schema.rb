@@ -10,12 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_07_20_214523) do
+ActiveRecord::Schema.define(version: 2022_10_09_051318) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "kapus_skate_developments", force: :cascade do |t|
+  create_table "rinks", force: :cascade do |t|
+    t.string "name"
+    t.string "address"
+    t.string "city"
+    t.string "state"
+    t.string "phone"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -36,15 +41,17 @@ ActiveRecord::Schema.define(version: 2022_07_20_214523) do
     t.index ["skate_id"], name: "index_skaters_on_skate_id"
   end
 
-  create_table "skaters_skates", id: false, force: :cascade do |t|
-    t.bigint "skater_id", null: false
-    t.bigint "skate_id", null: false
-  end
-
   create_table "skates", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.date "date"
+    t.integer "total_skaters"
+    t.string "host"
+    t.boolean "public"
+    t.string "rink"
+    t.bigint "rink_id", null: false
+    t.index ["rink_id"], name: "index_skates_on_rink_id"
   end
 
+  add_foreign_key "skates", "rinks"
 end
