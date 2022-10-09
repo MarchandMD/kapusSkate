@@ -1,9 +1,2 @@
-<div class="container border border-1">
-  <div class="row">
-    <div class="col">
-      <h3>Details for skate on <%= @skate.date.strftime('%A, %B %e, %Y') %></h3>
-    </div>
-  </div>
-  <%= render 'partials/skate_details' %>
-</div>
-
+<%= @skate.host %>
+<%= @skate.total_skaters %>

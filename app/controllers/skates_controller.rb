@@ -12,7 +12,6 @@ class SkatesController < ApplicationController
 
   def show
     @skate = Skate.find(params[:id])
-    @skaters = @skate.skaters
   end
 
   def edit
