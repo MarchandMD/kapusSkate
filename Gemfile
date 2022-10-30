@@ -72,3 +72,5 @@ gem "pry", "~> 0.14.1", :groups => [:development, :test]
 gem "shoulda-matchers", "~> 5.2", :groups => [:development, :test]
 
 gem "pry-rails", "~> 0.3.9", :group => :development
+
+gem "orderly", "~> 0.1.1", :groups => [:development, :test]
