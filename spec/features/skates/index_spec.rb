@@ -1,28 +1,29 @@
 require 'rails_helper'
 
 RSpec.describe 'Skates#index' do
+  before(:each) do
+    @rink = Rink.create!(name: "van Andel")
+  end
 
   it 'shows a skate happening in the future' do
-    skate = Skate.create!(date: DateTime.now + 7)
-
-    visit "/skates"
-
+    skate = @rink.skates.create!(date: DateTime.now + 7)
+    visit '/skates'
     expect(page).to have_content(skate.date.strftime('%a %b %d, %Y'))
   end
 
   it 'shows a skate that happened in the past' do
-    skate = Skate.create!(date: DateTime.now - 8)
+    skate = @rink.skates.create!(date: DateTime.now - 8)
 
-    visit "/skates"
+    visit '/skates'
     expect(page).to have_content(skate.date.strftime('%a %b %d, %Y'))
   end
 
   it 'shows an upcoming skate date as a link that takes user to that skate' do
-    skate = Skate.create!(date: DateTime.now + 5)
+    skate = @rink.skates.create!(date: DateTime.now + 5)
 
-    visit "/skates"
+    visit '/skates'
 
-    click_link("#{skate.date.strftime('%a %b %d, %Y')}")
+    click_link(skate.date.strftime('%a %b %d, %Y').to_s)
 
     expect(current_path).to eq("/skates/#{skate.id}")
   end
@@ -37,5 +38,4 @@ RSpec.describe 'Skates#index' do
     click_link 'Add a skate'
     expect(page).to have_current_path('/skates/new')
   end
-
 end
