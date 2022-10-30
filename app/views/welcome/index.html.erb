@@ -2,11 +2,24 @@
   <div class="col-lg-7 text-center text-lg-start">
     <div class="display-3 fw-bold">Kapus Skate</div>
     <h5 class="text-muted">Apex Center in Arvada, CO</h5>
-    <% if @next_skate == "No Skate scheduled" %>
-     <p class="fs-3"> <%= "Next Skate: #{@next_skate}" %></p>
-    <% else%>
-      <p class="fs-3">Next skate: <%= @next_skate.date.strftime("%A %B %d, %Y") %></p>
-    <% end%>
+    <% if @next_skate.nil? %>
+      <h2>No Upcoming skates</h2>
+    <% else %>
+      <h3>Next skate: <%= @next_skate %></h3>
+    <% end %>
   </div>
   <%= render partial: 'partials/homepg_signup' %>
+</div>
+<div class="row">
+  <div class="col">
+    <% if @skate.skaters != [] %>
+      <% @skate.skaters.each do |skater|%>
+        <ul>
+          <li><%= skater.name %></li>
+        </ul>
+      <% end %>
+      <% else %>
+      <p>no one signed up yet</p>
+    <% end %>
+  </div>
 </div>

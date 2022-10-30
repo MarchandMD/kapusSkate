@@ -1,3 +1,4 @@
+<% require 'faker' %>
 <div class="container">
 	<div class="row">
 		<div class="col-12 d-flex justify-content-center">
@@ -6,7 +7,7 @@
 	</div>
 	<div class="row">
 		<div class="col-lg-6">
-			<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus nam at delectus nesciunt sunt in corporis incidunt, rerum impedit unde ipsum similique praesentium error quisquam nobis dolores omnis reiciendis cum!</p>
+      <p><%= Faker::Lorem.paragraph(sentence_count: 20) %></p>
 		</div>
 		<div class="col-lg-6">
 			<%= image_tag 'hockey_image.jpg', placeholder: 'image', class: 'img-fluid' %>
@@ -17,8 +18,7 @@
 			<%= image_tag 'hockey_image.jpg', placeholder: 'image', class: 'img-fluid' %>
 		</div>
 		<div class="col-lg-6">
-			<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Asperiores, a deserunt. Dolorem consectetur excepturi temporibus a maxime, veritatis ipsum tempora nam nesciunt eligendi maiores doloribus vero dicta. Ut, aliquam nihil.</p>
-			<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur odio labore aperiam, fugit omnis reiciendis corporis quibusdam impedit eos beatae magnam maiores adipisci similique nobis. Quam ipsum eius consequuntur deserunt.</p>
+			<p><%= Faker::Lorem.paragraph(sentence_count: 20) %></p>
 		</div>
 	</div>
 	<div class="row">

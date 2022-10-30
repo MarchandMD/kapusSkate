@@ -1,20 +1,42 @@
 <div class="col-md-10 mx-auto col-lg-5">
-        <form class="p-4 p-md-5 border rounded-3 bg-light">
-          <div class="form-floating mb-3">
-            <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-            <label for="floatingInput">Email address</label>
-          </div>
-          <div class="form-floating mb-3">
-            <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
-            <label for="floatingPassword">Password</label>
-          </div>
-          <div class="checkbox mb-3">
-            <label>
-              <input type="checkbox" value="remember-me"> Remember me
-            </label>
-          </div>
-          <button class="w-100 btn btn-lg btn-primary" type="submit">Sign up</button>
-          <hr class="my-4">
-          <small class="text-muted">By clicking Sign up, you agree to the terms of use.</small>
-        </form>
-      </div>
+  <%= form_with(model: @skater, scope: :skater, url: '/skaters', method: 'post', local: true, class: 'p-4 p-md-5 border rounded-3 bg-light') do |f| %>
+    <div class="form-floating mb-3">
+      <%= f.text_field :name, type: 'name', class:'form-control', id: 'floatingInput', placeholder: "Foo Bar" %>
+      <%= f.label :name %>
+    </div>
+    <div class="form-floating mb-3">
+      <%= f.text_field :phone, type: 'phone_number', class:'form-control', id: 'floatingInput', placeholder: 'phone' %>
+      <%= f.label :phone %>
+    </div>
+    <div class="form-floating mb-3">
+      <%= f.text_field :email, type: 'email', class:'form-control', id: 'floatingInput', placeholder: 'email' %>
+      <%= f.label :email %>
+    </div>
+    <div class="form-floating mb-3">
+      <%= f.text_field :skill_level, type: 'skill_level', class:'form-control', id: 'floatingInput', placeholder: 'skill_level' %>
+      <%= f.label :skill_level %>
+    </div>
+    <div class="form-floating mb-3">
+      <%= f.text_field :position, type: 'position', class:'form-control', id: 'floatingInput', placeholder: 'position' %>
+      <%= f.label :position %>
+    </div>
+    <div class="form-floating mb-3">
+      <%= f.text_field :user_name, type: 'user_name', class:'form-control', id: 'floatingInput', placeholder: 'user_name' %>
+      <%= f.label :user_name %>
+    </div>
+    <div class="form-floating mb-3">
+      <%= f.text_field :city, type: 'city', class:'form-control', id: 'floatingInput', placeholder: 'city' %>
+      <%= f.label :city %>
+    </div>
+    <div class="form-floating mb-3">
+      <%= f.text_field :last_level, type: 'last_level', class:'form-control', id: 'floatingInput', placeholder: 'last_level' %>
+      <%= f.label :last_level %>
+    </div>
+    <div class="form-floating mb-3">
+      <%= f.text_field :years, type: 'years', class:'form-control', id: 'floatingInput', placeholder: 'years' %>
+      <%= f.label :years %>
+    </div>
+    <%= f.submit 'Sign Up', class: 'btn btn-primary w-100 btn-lg' %>
+  <% end %>
+</div>
+</div>
