@@ -1,6 +1,6 @@
 class SkatersController < ApplicationController
   def index
-    @skaters = Skater.all
+    @skaters = Skater.sort_by_creation_date
   end
 
   def show
