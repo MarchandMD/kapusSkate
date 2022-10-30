@@ -22,10 +22,10 @@ development:
 test:
   <<: *default
   # database: db/test.sqlite3
-  database: db/kapusSkate_test
+  database: kapusSkate_test
 
 production:
   <<: *default
-  database: db/kapus_skate_production
-  
-  
+  database: kapus_skate_production
+
+
