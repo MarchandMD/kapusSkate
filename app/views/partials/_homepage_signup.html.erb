@@ -1,5 +1,6 @@
 <div class="col-md-10 mx-auto col-lg-5">
   <%= form_with(model: @skater, scope: :skater, url: '/skaters', method: 'post', local: true, class: 'p-4 p-md-5 border rounded-3 bg-light') do |f| %>
+  <legend class="display-4">SignUp</legend>
     <div class="form-floating mb-3">
       <%= f.text_field :name, type: 'name', class:'form-control', id: 'floatingInput', placeholder: "Foo Bar" %>
       <%= f.label :name, 'Full Name' %>
