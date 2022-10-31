@@ -7,16 +7,23 @@ RSpec.describe 'Skaters' do
     @skater2 = Skater.create!(name: 'suzie')
   end
 
-  describe "#show action" do
+  describe '#show action' do
     it 'displays skaters by creation date, in descending order' do
       visit '/skaters'
 
       expect(@skater2.name).to appear_before(@skater1.name)
     end
 
-    it 'can search for a skater, exact match'
+    it 'can search for a skater, exact match' do
+      visit '/skaters/'
+      fill_in 'skater[search_term]',	with: 'billy'
+      expect(page).to have_button('search')
+      click_button('search')
+      expect(current_path).to eq("/skaters")
+      expect(page).to have_content('billy')
+      expect(page).not_to have_content('suzie')
+    end
 
     it 'can search for a skater, partial match'
   end
-
 end

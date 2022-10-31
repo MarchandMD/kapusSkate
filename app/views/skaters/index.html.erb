@@ -4,17 +4,25 @@
       <%= link_to 'create a skater', new_skater_path, class: 'btn btn-primary' %>
     </div>
   </div>
+  <div class="row">
+    <div class="col border border-1">
+      <%= form_with(scope: :skater, url: '/skaters', method: :get, local: true) do |f| %>
+        <%= f.text_field :search_term, placeholder: 'search for a player' %>
+        <%= f.submit 'search' %>
+      <% end %>
+    </div>
+  </div>
   <div class="row justify-content-center">
     <div class="col">
       <table class="table table-sm">
         <tr>
-          <th>Name</th>
-          <th>Username</th>
-          <th>city</th>
-          <th>Skill Level</th>
-          <th>Last Competitive level</th>
-          <th>Years going to Kapus</th>
-          <th>preferred position</th>
+          <th><%= link_to "Name", sort: 'name' %></th>
+          <th><%= link_to "Username", sort: 'user_name' %></th>
+          <th><%= link_to "city", sort: 'city' %></th>
+          <th><%= link_to "Skill Level", sort: 'skill_level' %></th>
+          <th><%= link_to "Last Competitive level", sort: 'last_level' %></th>
+          <th><%= link_to "Years going to Kapus", sort: 'years' %></th>
+          <th><%= link_to "preferred position", sort: 'position' %></th>
           <th>edit</th>
           <th>delete</th>
         </tr>
