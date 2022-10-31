@@ -1,6 +1,12 @@
 class SkatersController < ApplicationController
   def index
-    @skaters = Skater.sort_by_creation_date
+    @skaters = if params.include?(:sort)
+                 Skater.order(params[:sort])
+               elsif params[:skater][:search_term] != ''
+                 Skater.where('name like ?', "%#{params[:skater][:search_term]}%")
+               else
+                 Skater.sort_by_creation_date
+               end
   end
 
   def show
@@ -44,6 +50,7 @@ class SkatersController < ApplicationController
   private
 
   def skater_params
-    params.require(:skater).permit('name', 'email', 'phone', 'skill_level', 'position', 'user_name', 'city', 'last_level', 'years')
+    params.require(:skater).permit('name', 'email', 'phone', 'skill_level', 'position', 'user_name', 'city',
+                                   'last_level', 'years', 'search_term')
   end
 end
