@@ -2,7 +2,7 @@ class SkatersController < ApplicationController
   def index
     @skaters = if params.include?(:sort)
                  Skater.order(params[:sort])
-               elsif params[:skater][:search_term] != ''
+               elsif params.include?(:skater)
                  Skater.where('name like ?', "%#{params[:skater][:search_term]}%")
                else
                  Skater.sort_by_creation_date
