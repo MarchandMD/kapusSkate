@@ -1,12 +1,18 @@
 <div class="row g-lg-5 py-5">
-  <div class="col-lg-7 text-center text-lg-start">
+  <div class="col-lg-6 text-center text-lg-start">
     <div class="display-3 fw-bold">Kapus Skate</div>
-    <h5 class="text-muted">Apex Center in Arvada, CO</h5>
-    <% if @next_skate.nil? %>
-      <h2>No Upcoming skates</h2>
-    <% else %>
-      <h3>Next skate: <%= @next_skate %></h3>
+
+    <div class="col">
+    <h3 class="text-muted">upcoming skates:</h3>
+    <% @next_three_skates.each do |skate| %>
+      <div class="border border-1 m-3 p-3">
+        <p>Date: <%= link_to skate.date.strftime("%A %B %d, %Y"), skate_path(skate.id) %></p>
+        <p>Rink: <%= skate.rink.name %></p>
+        <p>Address: <%= skate.rink.address %></p>
+        <p>Host: <%= skate.host %></p>
+      </div>
     <% end %>
+    </div>
   </div>
   <%= render partial: 'partials/homepage_signup' %>
 </div>
@@ -18,7 +24,7 @@
           <li><%= skater.name %></li>
         </ul>
       <% end %>
-      <% else %>
+    <% else %>
       <p>no one signed up yet</p>
     <% end %>
   </div>
