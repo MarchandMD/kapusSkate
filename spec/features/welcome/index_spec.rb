@@ -52,11 +52,12 @@ RSpec.describe 'the welcome page' do
 
   context "as a registered user" do
     describe 'visiting the root path' do
-      it 'allows the user to log in' do
+      it 'allows an existing user to log in' do
         click_link "I already have an account"
         expect(current_path).to eq(login_path)
 
         fill_in "email",	with: @skater.email
+        fill_in "password", with: @skater.password
 
         click_on "Log in"
 
