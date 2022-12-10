@@ -13,33 +13,6 @@
     </div>
   </div>
   <div class="row justify-content-center">
-    <div class="col">
-      <table class="table table-sm">
-        <tr>
-          <th><%= link_to "Name", sort: 'name' %></th>
-          <th><%= link_to "Username", sort: 'user_name' %></th>
-          <th><%= link_to "city", sort: 'city' %></th>
-          <th><%= link_to "Skill Level", sort: 'skill_level' %></th>
-          <th><%= link_to "Last Competitive level", sort: 'last_level' %></th>
-          <th><%= link_to "Years going to Kapus", sort: 'years' %></th>
-          <th><%= link_to "preferred position", sort: 'position' %></th>
-          <th>edit</th>
-          <th>delete</th>
-        </tr>
-        <% @skaters.each do |skater| %>
-          <tr>
-            <td><%= link_to skater.name, skater_path(skater) %></td>
-            <td><%= skater.user_name %></td>
-            <td><%= skater.city %></td>
-            <td><%= skater.skill_level %></td>
-            <td><%= skater.last_level %></td>
-            <td><%= skater.years   %></td>
-            <td><%= skater.position %></td>
-            <td><%= link_to 'edit', edit_skater_path(skater), method: :get %></td>
-            <td><%= link_to 'delete', skater_path(skater), method: :delete, data: {confirm: 'Are you sure?'} %></td>
-          </tr>
-        <% end %>
-      </table>
-    </div>
+    <%= render partial: 'partials/skaters' %>
   </div>
 </div>

@@ -11,6 +11,7 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
   <body>
+  
     <div class="container">
       <%= render 'partials/navbar' %>
       <div class="container col-xl-12 col-xxl-12 px-1 py-1">
@@ -20,9 +21,7 @@
         <% if alert %>
           <p class="alert alert-danger"><%= alert %></p>
         <% end %>
-        <% flash.each do |name, msg| %>
-          <%= content_tag :div, msg, class: name %>
-        <% end %>
+        <%= render partial: 'partials/flash' %>
         <%= yield %>
       </div>
     </div>

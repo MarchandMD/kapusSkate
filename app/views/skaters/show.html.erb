@@ -1,3 +1,2 @@
 
-<%= @skater.name %>
-<%= @skater.email %>
+<%= content_tag :div, content_tag(:div, @skater.email, class: "col-6"), class: 'row' %>
