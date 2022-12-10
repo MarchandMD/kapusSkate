@@ -20,9 +20,9 @@ end
 
 rinks = Rink.all.pluck(:id)
 
-
 60.times do
-  Skater.create!(name: Faker::Name.name, phone: Faker::PhoneNumber.phone_number.to_s, email: Faker::Internet.email, skill_level: Faker::Number.number(digits: 1), position: Faker::Sports::Basketball.position, user_name: Faker::Internet.username, last_level: 'college', years: Faker::Number.number(digits: 1), city: Faker::Address.city)
+  Skater.create!(name: Faker::Name.name, phone: Faker::PhoneNumber.phone_number.to_s, email: Faker::Internet.email,
+                 skill_level: Faker::Number.number(digits: 1), position: Faker::Sports::Basketball.position, user_name: Faker::Internet.username, last_level: 'college', years: Faker::Number.number(digits: 1), city: Faker::Address.city, password: Faker::Internet.password)
 end
 
 skaters = Skater.all.pluck(:name)
@@ -42,4 +42,3 @@ end
 end
 
 skates = Skate.all
-

@@ -21,8 +21,11 @@ class SkatersController < ApplicationController
     @skater = Skater.new(skater_params)
 
     if @skater.save
-      redirect_to skaters_path
+      # happy path
+      redirect_to skater_path(@skater)
+      flash[:success] = "welcome #{@skater.email.downcase}"
     else
+      # sad path
       render :new
     end
   end
@@ -35,7 +38,7 @@ class SkatersController < ApplicationController
     @skater = Skater.find(params[:id])
 
     if @skater.update(skater_params)
-      redirect_to skaters_path
+      redirect_to skater_path
     else
       render :edit
     end
@@ -51,6 +54,6 @@ class SkatersController < ApplicationController
 
   def skater_params
     params.require(:skater).permit('name', 'email', 'phone', 'skill_level', 'position', 'user_name', 'city',
-                                   'last_level', 'years', 'search_term')
+                                   'last_level', 'years', 'search_term', 'password')
   end
 end
