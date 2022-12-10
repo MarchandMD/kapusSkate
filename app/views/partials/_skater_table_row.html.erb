@@ -1,0 +1,4 @@
+
+<td><%= link_to skater.email, skater_path(skater) %></td>
+<td><%= link_to 'edit', edit_skater_path(skater), method: :get %></td>
+<td><%= link_to 'delete', skater_path(skater), method: :delete, data: {confirm: 'Are you sure?'} %></td>

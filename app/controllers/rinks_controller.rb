@@ -1,5 +1,4 @@
 class RinksController < ApplicationController
-
   def index
     @rinks = Rink.all
   end
@@ -7,16 +6,19 @@ class RinksController < ApplicationController
   def new; end
 
   def create
-    Rink.create!(rink_params)
+    rink = Rink.new(rink_params)
 
-    redirect_to '/rinks'
+    if rink.save
+      flash[:success] = "New rink created"
+      redirect_to rinks_path
+    else
+      render :new
+    end
   end
 
   private
 
   def rink_params
-    params.permit(:name, :address, :city, :state, :phone)
+    params.permit(:name, :address)
   end
-
-
 end

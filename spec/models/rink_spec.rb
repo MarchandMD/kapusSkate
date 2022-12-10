@@ -7,10 +7,7 @@ RSpec.describe Rink, type: :model do
 
   subject do
     described_class.new(name: 'Apex',
-                        address: '123 Main St',
-                        city: 'Westminster',
-                        state: 'CO',
-                        phone: '555-555-5555')
+                        address: '123 Main St')
   end
 
   xit 'is valid with valid attributes' do

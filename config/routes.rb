@@ -1,10 +1,18 @@
 Rails.application.routes.draw do
   root 'welcome#index'
-  get '/rinks', to: 'rinks#index'
-  get '/rinks/new', to: 'rinks#new'
-  post '/rinks', to: 'rinks#create'
-  resources :skates
+
+  resources :rinks, only: %i[index new create]
+
+  resources :skates do
+    resources :skaters, only: %i[index]
+  end
+
   resources :skaters
-  get '/about/index', to: 'about#index', as: 'about'
-  get '/social_media/index', to: 'social_media#index'
+
+  resources :about, only: %i[index]
+  resources :social_media, only: %i[index]
+
+  get "/login", to: "skaters#login_form"
+  post "/login", to: "skaters#login"
+
 end

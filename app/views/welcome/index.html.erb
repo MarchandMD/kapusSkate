@@ -1,17 +1,11 @@
 <div class="row g-lg-5 py-5">
   <div class="col-lg-6 text-center text-lg-start">
-    <div class="display-3 fw-bold">Kapus Skate</div>
-
+    <%= content_tag :div, "kapusSkate", class: 'display-3 fw-bold' %>
     <div class="col">
-    <h3 class="text-muted">upcoming skates:</h3>
-    <% @next_three_skates.each do |skate| %>
-      <div class="border border-1 m-3 p-3">
-        <p>Date: <%= link_to skate.date.strftime("%A %B %d, %Y"), skate_path(skate.id) %></p>
-        <p>Rink: <%= skate.rink.name %></p>
-        <p>Address: <%= skate.rink.address %></p>
-        <p>Host: <%= skate.host %></p>
-      </div>
-    <% end %>
+    <%= content_tag :h3, "upcoming skates:", class: "text-muted" %>
+      <% @next_three_skates.each do |skate| %>
+        <%= render partial: 'partials/next_three_skates', locals: { skate: skate } %>
+      <% end %>
     </div>
   </div>
   <%= render partial: 'partials/homepage_signup' %>

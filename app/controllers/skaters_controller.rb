@@ -22,8 +22,8 @@ class SkatersController < ApplicationController
 
     if @skater.save
       # happy path
-      redirect_to skater_path(@skater)
       flash[:success] = "welcome #{@skater.email.downcase}"
+      redirect_to skater_path(@skater)
     else
       # sad path
       render :new
@@ -48,6 +48,15 @@ class SkatersController < ApplicationController
     @skater = Skater.find(params[:id])
     @skater.destroy
     redirect_to skaters_path
+  end
+
+  def login_form
+  end
+
+  def login
+    skater = Skater.find_by(email: params[:email])
+    flash[:success] = "Welcome, #{skater.email.downcase}!"
+    redirect_to root_path
   end
 
   private

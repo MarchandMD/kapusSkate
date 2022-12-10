@@ -1,0 +1,12 @@
+<div class="col">
+  <table class="table table-sm">
+    <tr>
+    <%= render partial: 'partials/skater_table_headers' %>
+    </tr>
+    <% @skaters.each do |skater| %>
+      <tr>
+        <%= render partial: 'partials/skater_table_row', locals: { skater: skater } %>
+      </tr>
+    <% end %>
+  </table>
+</div>
