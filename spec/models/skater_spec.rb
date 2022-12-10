@@ -6,11 +6,17 @@ RSpec.describe Skater do
     it { should have_many(:skates).through(:skater_skates) }
   end
 
+  describe 'validations' do
+    it { should validate_presence_of :email }
+    it { should validate_uniqueness_of :email }
+    it { should validate_presence_of :password }
+  end
+
   describe 'class methods' do
     before(:each) do
-      @skater1 = Skater.create!(name: 'Billy')
+      @skater1 = create(:skater)
       sleep(1)
-      @skater2 = Skater.create!(name: 'Susanna')
+      @skater2 = create(:skater)
     end
 
     describe '::sort_by_creation_date' do
@@ -19,14 +25,9 @@ RSpec.describe Skater do
         expect(skaters[0]).to eq(@skater2)
         expect(skaters[1]).to eq(@skater1)
       end
-
     end
   end
 
-
   describe 'instance methods' do
-
   end
-
-
 end

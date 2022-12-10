@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_10_30_022611) do
+ActiveRecord::Schema.define(version: 2022_12_10_032442) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -47,6 +47,7 @@ ActiveRecord::Schema.define(version: 2022_10_30_022611) do
     t.string "city"
     t.string "last_level"
     t.string "years"
+    t.string "password_digest"
     t.index ["skate_id"], name: "index_skaters_on_skate_id"
   end
 

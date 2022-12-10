@@ -1,41 +1,13 @@
-<div class="col-md-10 mx-auto col-lg-5">
+<div class="col-md-10 mx-auto col-lg-5" id="signup_form">
   <%= form_with(model: @skater, scope: :skater, url: '/skaters', method: 'post', local: true, class: 'p-4 p-md-5 border rounded-3 bg-light') do |f| %>
   <legend class="display-4">SignUp</legend>
-    <div class="form-floating mb-3">
-      <%= f.text_field :name, type: 'name', class:'form-control', id: 'floatingInput', placeholder: "Foo Bar" %>
-      <%= f.label :name, 'Full Name' %>
-    </div>
-    <div class="form-floating mb-3">
-      <%= f.text_field :user_name, type: 'user_name', class:'form-control', id: 'floatingInput', placeholder: 'user_name' %>
-      <%= f.label :user_name %>
-    </div>
-    <div class="form-floating mb-3">
-      <%= f.text_field :phone, type: 'phone_number', class:'form-control', id: 'floatingInput', placeholder: 'phone' %>
-      <%= f.label :phone, 'phone number, optional' %>
-    </div>
     <div class="form-floating mb-3">
       <%= f.text_field :email, type: 'email', class:'form-control', id: 'floatingInput', placeholder: 'email' %>
       <%= f.label :email, 'email address' %>
     </div>
     <div class="form-floating mb-3">
-      <%= f.text_field :city, type: 'city', class:'form-control', id: 'floatingInput', placeholder: 'city' %>
-      <%= f.label :city %>
-    </div>
-    <div class="mb-3">
-      <%= f.label :years, 'Years skating at Kapus' %>
-      <%= f.number_field(:years, in: 0..15) %>
-    </div>
-    <div class="mb-3">
-      <%= f.label :last_level, 'last competetive level' %>
-      <%= f.select(:last_level, ["I'm a rookie", "played as a youth", "high school", "juniors - american", "juniors - canadian", "college", "minor league", "none of your business"]) %>
-    </div>
-    <div class="mb-3">
-      <%= f.label :skill_level %>
-      <%= f.number_field(:skill_level, in: 1..10) %>
-    </div>
-    <div class="mb-3">
-      <%= f.label :position %>
-      <%= f.select(:position, ['forward', 'defense', 'goalie']) %>
+      <%= f.text_field :password, type: 'password', class:'form-control', id: 'floatingInput', placeholder: 'password' %>
+      <%= f.label :password, 'password' %>
     </div>
     <%= f.submit 'Sign Up', class: 'btn btn-primary w-100 btn-lg' %>
   <% end %>

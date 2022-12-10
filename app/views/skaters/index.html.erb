@@ -28,7 +28,7 @@
         </tr>
         <% @skaters.each do |skater| %>
           <tr>
-            <td><%= skater.name %></td>
+            <td><%= link_to skater.name, skater_path(skater) %></td>
             <td><%= skater.user_name %></td>
             <td><%= skater.city %></td>
             <td><%= skater.skill_level %></td>
