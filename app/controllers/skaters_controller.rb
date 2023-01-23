@@ -18,11 +18,13 @@ class SkatersController < ApplicationController
   end
 
   def create
-    @skater = Skater.new(skater_params)
+    skater = skater_params
+    skater[:email] = skater[:email].downcase
+    @skater = Skater.new(skater)
 
     if @skater.save
       # happy path
-      flash[:success] = "welcome #{@skater.email.downcase}"
+      flash[:success] = "welcome #{@skater.email}"
       redirect_to skater_path(@skater)
     else
       # sad path
@@ -55,14 +57,20 @@ class SkatersController < ApplicationController
 
   def login
     skater = Skater.find_by(email: params[:email])
-    flash[:success] = "Welcome, #{skater.email.downcase}!"
-    redirect_to root_path
+
+    if skater.authenticate(params[:password])
+      session[:skater_id] = skater.id
+      flash[:success] = "Welcome, #{skater.email.downcase}!"
+      redirect_to root_path
+    else
+      flash[:error] = "Wrong password"
+      render :login_form
+    end
   end
 
   private
 
   def skater_params
-    params.require(:skater).permit('name', 'email', 'phone', 'skill_level', 'position', 'user_name', 'city',
-                                   'last_level', 'years', 'search_term', 'password')
+    params.require(:skater).permit('email', 'password')
   end
 end

@@ -7,7 +7,7 @@ Rails.application.routes.draw do
     resources :skaters, only: %i[index]
   end
 
-  resources :skaters
+  resources :skaters, only: %i[index show new create]
 
   resources :about, only: %i[index]
   resources :social_media, only: %i[index]

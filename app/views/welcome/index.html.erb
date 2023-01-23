@@ -1,4 +1,4 @@
-<div class="row g-lg-5 py-5">
+<div class="row g-lg-5 py-5 bg-light">
   <div class="col-lg-6 text-center text-lg-start">
     <%= content_tag :div, "kapusSkate", class: 'display-3 fw-bold' %>
     <div class="col">
@@ -8,12 +8,12 @@
       <% end %>
     </div>
   </div>
-  <%= render partial: 'partials/homepage_signup' %>
+  <%= render partial: 'partials/skater_signup' %>
 </div>
 <div class="row">
   <div class="col">
-    <% if @skate.skaters != [] %>
-      <% @skate.skaters.each do |skater|%>
+    <% if @skate.skater_skates != [] %>
+      <% @skate.skater_skates.each do |skater|%>
         <ul>
           <li><%= skater.name %></li>
         </ul>
