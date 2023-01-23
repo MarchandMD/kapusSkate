@@ -16,8 +16,10 @@ describe 'Users' do
         expect(Skater.all.count).to eq(1)
 
         expect(new_skater.email).to eq('email@email.com')
-        expect(new_skater.password).to eq('password')
-        expect(current_path).to eq(skater_path(new_skater))
+
+        expect(new_skater.password).to eq(nil)
+        expect(current_path).to eq(root_path)
+        expect(page).to have_content("welcome #{new_skater.email}")
       end
     end
   end
