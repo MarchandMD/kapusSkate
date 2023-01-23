@@ -1,6 +1,6 @@
 <div class="col-md-10 mx-auto col-lg-5" id="signup_form">
-  <%= form_with(url: skaters_path, model: @skater, local: true, class: 'p-4 p-md-5 border rounded-3 bg-light shadow') do |f| %>
-    <%= content_tag :legend, 'SignUp', class: 'display-4' %>
+  <%= form_with(model: @skater, scope: :skater, url: login_path, method: 'post', local: true, class: 'p-4 p-md-5 border rounded-3 bg-light shadow') do |f| %>
+    <%= content_tag :legend, 'Log In', class: 'display-4' %>
     <div class="form-floating mb-3">
       <%= f.text_field :email, type: 'email', class:'form-control', id: 'floatingInput', placeholder: 'email' %>
       <%= f.label :email, 'email address' %>
@@ -10,9 +10,8 @@
       <%= f.label :password, 'password' %>
     </div>
     <div class="d-flex p-3 justify-content-center">
-      <%= link_to 'I already have an account', login_path %>
     </div>
-    <%= f.submit 'Sign Up', class: 'btn btn-primary w-100 btn-lg' %>
+    <%= f.submit 'Log in', class: 'btn btn-primary w-100 btn-lg' %>
   <% end %>
 </div>
 </div>

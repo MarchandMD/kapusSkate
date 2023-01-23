@@ -31,22 +31,9 @@ RSpec.describe 'the welcome page' do
     # expect(page).to have_content(@skate.date.strftime("%A %B %d, %Y"))
   end
 
-  context "authenticating a user/registration form" do
-    describe 'the signup process from the homepage' do
-      it 'has a heading of Signup' do
-        expect(page).to have_content('SignUp')
-      end
-
-      it 'creates a new skater' do
-        user_email = Faker::Internet.email
-        password = "test"
-
-        fill_in "email",	with: user_email
-        fill_in "password", with: password
-
-        click_on "Sign Up"
-        expect(page).to have_content "welcome #{user_email}"
-      end
+  context "creating a new user" do
+    it 'has a button to sign up' do
+      expect(page).to have_link('Sign up')
     end
   end
 
