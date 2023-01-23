@@ -1,92 +1,18 @@
-<%= form_for @skater, local: true do |f| %>
-  <% @skater.errors.full_messages.each do |message| %>
-    <%= message %>
+<div class="col-md-10 mx-auto col-lg-5" id="signup_form">
+  <%= form_with(model: @skater, scope: :skater, url: '/skaters', method: 'post', local: true, class: 'p-4 p-md-5 border rounded-3 bg-light shadow') do |f| %>
+    <%= content_tag :legend, 'SignUp', class: 'display-4' %>
+    <div class="form-floating mb-3">
+      <%= f.text_field :email, type: 'email', class:'form-control', id: 'floatingInput', placeholder: 'email' %>
+      <%= f.label :email, 'email address' %>
+    </div>
+    <div class="form-floating mb-3">
+      <%= f.text_field :password, type: 'password', class:'form-control', id: 'floatingInput', placeholder: 'password' %>
+      <%= f.label :password, 'password' %>
+    </div>
+    <div class="d-flex p-3 justify-content-center">
+      <%= link_to 'I already have an account', login_path %>
+    </div>
+    <%= f.submit 'Sign Up', class: 'btn btn-primary w-100 btn-lg' %>
   <% end %>
-  <h1 class="display-6 p-3">Create your profile</h1>
-  <div class="form mb-3">
-    <div class="row">
-      <div class="col-sm-4">
-        <%= f.label :name %>
-      </div>
-      <div class="col-sm-8">
-        <%= f.text_field :name, class: 'form-control form-control-lg' %>
-      </div>
-    </div>
-  </div>
-  <div class="form-floating mb-3">
-    <div class="row">
-      <div class="col-sm-4">
-        <%= f.label :user_name %>
-      </div>
-      <div class="col-sm-8">
-        <%= f.text_field :user_name, class: 'form-control form-control-lg' %>
-      </div>
-    </div>
-  </div>
-  <div class="row mb-3">
-    <div class="col-sm-4">
-      <%= f.label :email %>
-    </div>
-    <div class="col-sm-8">
-      <%= f.text_field :email, class: 'form-control form-control-lg' %>
-    </div>
-  </div>
-  <div class="row mb-3">
-    <div class="col-sm-4">
-      <%= f.label :phone %>
-    </div>
-    <div class="col-sm-8">
-      <%= f.text_field :phone, class: 'form-control form-control-lg' %>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-sm-4">
-      <%= f.label :city %>
-    </div>
-    <div class="col-sm-8">
-      <%= f.text_field :city, class: 'form-control form-control-lg' %>
-    </div>
-  </div>
-  <div class="f mb-3">
-  </div>
-  <div class="row mb-3">
-    <div class="col-sm-4">
-      <%= f.label :skill_level %>
-    </div>
-    <div class="col-sm-8">
-      <%= f.select :skill_level, 1..10, {}, {class: 'form-control form-control-lg_level'} %>
-    </div>
-  </div>
-  <div class="row mb-3">
-    <div class="col-sm-4">
-      <%= f.label :position %>
-    </div>
-    <div class="col-sm-8">
-      <%= f.select :position, ['forward', 'defense', 'goalie', 'just get me on the ice'], {}, {class: 'form-control form-control-lg', placeholder: 'position'}  %>
-    </div>
-  </div>
-  <div class="row mb-3">
-    <div class="col-sm-4">
-      <%= f.label :last_level %>
-    </div>
-    <div class="col-sm-8">
-      <%= f.select :last_level, ['beginner', 'mens league', 'mite', 'squirt', 'peewee', 'bantaam', 'high school', 'juniors', 'college', 'pro', 'legend'], {}, { class: 'form-control form-control-lg', placeholder: 'last_level'} %>
-    </div>
-  </div>
-  <div class="row mb-3">
-    <div class="col-sm-4">
-      <%= f.label :years_attending_kapus_skate %>
-    </div>
-    <div class="col-sm-8">
-      <%= f.select :years, ['less than 1 year', '1 - 5 years', '5+ years', 'Legend'], {}, {class: 'form-control form-control-lg', placeholder: 'years_attending_kapus_skate'} %>
-    </div>
-  </div>
-  <div class="row mb-3">
-    <%= f.submit 'submit', class: 'btn btn-primary' %>
-  </div>
-  <div class="row mb-3">
-    <%= link_to 'Cancel', skaters_path, class: 'btn btn-primary' %>
-  </div>
-  <hr>
-  <p class="text-muted">by signing up you're gonna try your hardest to actually show up</p>
-<% end %>
+</div>
+</div>
