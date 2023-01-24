@@ -56,7 +56,7 @@ class SkatersController < ApplicationController
   def login
     skater = Skater.find_by(email: params[:skater][:email])
 
-    if skater.authenticate(params[:skater][:password])
+    if !skater.nil? && skater.authenticate(params[:skater][:password])
       session[:skater_id] = skater.id
       flash[:success] = "Welcome, #{skater.email.downcase}!"
       redirect_to root_path
