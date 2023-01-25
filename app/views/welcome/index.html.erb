@@ -1,16 +1,16 @@
 <div class="row g-lg-5 py-5 bg-light">
-  <div class="col-6 text-center text-lg-start border border-1 ">
+  <div class="col-sm-12 border border-3 d-flex flex-column align-items-center p-3">
+    <%= link_to 'Sign up', new_skater_path, {class: 'btn btn-primary p-3 m-1'} %>
+    <%= link_to 'I already have an account', login_path %>
+  </div>
+  <div class="col-sm-12 text-center text-lg-start border border-1 d-flex flex-column align-items-center">
     <%= content_tag :div, "kapusSkate", class: 'display-3 fw-bold' %>
-    <div class="col-6">
+    <div class="col-sm-12 d-flex flex-column align-items-center">
       <%= content_tag :h3, "upcoming skates:", class: "text-muted" %>
       <% @next_three_skates.each do |skate| %>
         <%= render partial: 'partials/next_three_skates', locals: { skate: skate } %>
       <% end %>
     </div>
-  </div>
-  <div class="col-6">
-    <%= link_to 'Sign up', new_skater_path, {class: 'btn btn-primary'} %>
-    <%= link_to 'I already have an account', login_path %>
   </div>
 </div>
 

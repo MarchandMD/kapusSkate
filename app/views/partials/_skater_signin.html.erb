@@ -1,5 +1,5 @@
 <div class="col-md-10 mx-auto col-lg-5" id="signup_form">
-  <%= form_with(model: @skater, scope: :skater, url: login_path, method: 'post', local: true, class: 'p-4 p-md-5 border rounded-3 bg-light shadow') do |f| %>
+  <%= form_with(model: @skater, scope: :skater, url: login_path, local: true, class: 'p-4 p-md-5 border rounded-3 bg-light shadow') do |f| %>
     <%= content_tag :legend, 'Log In', class: 'display-4' %>
     <div class="form-floating mb-3">
       <%= f.text_field :email, type: 'email', class:'form-control', id: 'floatingInput', placeholder: 'email' %>

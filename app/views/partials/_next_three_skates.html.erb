@@ -1,5 +1,12 @@
-<div class="border border-1 m-3 p-3 shadow">
-  <p>Date: <%= link_to skate.date.strftime("%A %B %d, %Y"), skate_path(skate.id) %></p>
-  <p>Rink: <%= skate.rink.name %></p>
-  <p>Address: <%= skate.rink.address %></p>
+<div class="col-sm-3 d-flex flex-column align-items-center">
+  <table class="table">
+    <tr>
+      <td>
+        Date:
+      </td>
+      <td>
+        <%= link_to skate.date.strftime("%A %B %d, %Y"), skate_path(skate.id) %>
+      </td>
+    </tr>
+  </table>
 </div>

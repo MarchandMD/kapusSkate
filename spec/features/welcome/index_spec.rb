@@ -52,6 +52,16 @@ RSpec.describe 'the welcome page' do
 
         expect(page).to have_content("Welcome, #{@skater.email}!")
       end
+
+      it 'cannot login with bad credentials' do
+        visit login_path
+
+        fill_in "email",	with: @skater.email
+        fill_in "password",	with: "incorrect password"
+        click_on 'Log in'
+        expect(current_path).to eq(login_path)
+        expect(page).to have_content("Wrong password or no user")
+      end
     end
   end
 end
