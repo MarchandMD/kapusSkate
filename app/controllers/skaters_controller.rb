@@ -57,13 +57,27 @@ class SkatersController < ApplicationController
     skater = Skater.find_by(email: params[:skater][:email])
 
     if !skater.nil? && skater.authenticate(params[:skater][:password])
-      session[:skater_id] = skater.id
+      session[:skater_id] = skater.id unless session[:skater_id]
       flash[:success] = "Welcome, #{skater.email.downcase}!"
       redirect_to root_path
+      # unless session[:skater_id]
+      #   if !cookies[:remember_me].empty?
+      #     user = Skater.find(cookies[:remember_me])
+      #     if user.admin?
+      #       cookies.destroy :remember_me
+      #       redirect_to login_path
+      #     end
+      #   else
+      #     session[:skater_id] = user.id
+      #   end
+      # end
     else
       flash[:error] = "Wrong password or no user"
       render :login_form
     end
+  end
+
+  def logout
   end
 
   private

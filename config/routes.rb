@@ -7,12 +7,13 @@ Rails.application.routes.draw do
     resources :skaters, only: %i[index]
   end
 
-  resources :skaters, only: %i[index show new create]
+  resources :skaters, only: %i[index show new create edit]
 
   resources :about, only: %i[index]
   resources :social_media, only: %i[index]
 
   get "/login", to: "skaters#login_form"
   post "/login", to: "skaters#login"
+  get "/logout", to: "skaters#logout"
 
 end
