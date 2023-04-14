@@ -60,17 +60,6 @@ class SkatersController < ApplicationController
       session[:skater_id] = skater.id unless session[:skater_id]
       flash[:success] = "Welcome, #{skater.email.downcase}!"
       redirect_to root_path
-      # unless session[:skater_id]
-      #   if !cookies[:remember_me].empty?
-      #     user = Skater.find(cookies[:remember_me])
-      #     if user.admin?
-      #       cookies.destroy :remember_me
-      #       redirect_to login_path
-      #     end
-      #   else
-      #     session[:skater_id] = user.id
-      #   end
-      # end
     else
       flash[:error] = "Wrong password or no user"
       render :login_form
