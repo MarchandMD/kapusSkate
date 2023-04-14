@@ -1,9 +1,3 @@
-<div class="row">
-  <div class="col">
-    <%= session[:skater_id] %>
-  </div>
-</div>
-
 <div class="row g-lg-5 py-5 bg-light">
   <% if session[:skater_id].nil? %>
     <div class="col-sm-12 border border-3 d-flex flex-column align-items-center p-3">
@@ -12,7 +6,7 @@
     </div>
   <% else %>
     <div class="col-sm-12 border border-3 d-flex flex-column align-items-center p-3">
-      <%= session[:skater_id] %>
+      <%= "dashboard for: skater #{session[:skater_id]}" %>
     </div>
   <% end %>
   <div class="col-sm-12 text-center text-lg-start border border-1 d-flex flex-column align-items-center">
