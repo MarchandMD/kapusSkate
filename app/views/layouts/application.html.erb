@@ -11,18 +11,12 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
   <body>
-    <div class="container shadow">
-      <%= render 'partials/navbar' %>
-      <div class="container col-xl-12 col-xxl-12 px-1 py-1">
-        <% if notice %>
-          <p class="alert alert-success"><%= notice %></p>
-        <% end %>
-        <% if alert %>
-          <p class="alert alert-danger"><%= alert %></p>
-        <% end %>
-        <%= render partial: 'partials/flash' %>
-        <%= yield %>
-      </div>
+    <%= render partial: 'partials/navbar' unless current_page?(root_path) %>
+    <div class="container border border-1">
+      <% if flash[:goodbye].present? %>
+        <%= flash[:goodbye] %>
+      <% end %>
+      <%= yield %>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
   </body>

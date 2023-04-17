@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'users/index'
+  get 'users/show'
   root 'welcome#index'
 
   resources :rinks, only: %i[index new create]
@@ -12,8 +14,10 @@ Rails.application.routes.draw do
   resources :about, only: %i[index]
   resources :social_media, only: %i[index]
 
+  resources :users, only: %i[index show]
   get "/login", to: "skaters#login_form"
   post "/login", to: "skaters#login"
   get "/logout", to: "skaters#logout"
+  get '/auth/:provider/callback', to: 'sessions#omniauth'
 
 end

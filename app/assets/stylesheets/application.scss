@@ -12,3 +12,7 @@
  *
  */
 @import "bootstrap";
+
+.container {
+  height: calc(100vh - 10px);
+}

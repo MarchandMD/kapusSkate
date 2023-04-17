@@ -67,6 +67,9 @@ class SkatersController < ApplicationController
   end
 
   def logout
+    session[:user_id] = nil
+    flash[:goodbye] = "you've successfully logged out"
+    redirect_to root_path
   end
 
   private

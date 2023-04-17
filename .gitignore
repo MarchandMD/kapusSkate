@@ -42,3 +42,6 @@ yarn-debug.log*
 .DS_Store
 coverage/
 notes/
+
+# Ignore application configuration
+/config/application.yml
