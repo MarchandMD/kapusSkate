@@ -30,10 +30,10 @@
 <br />
 <div align="center">
 
-  <h1 align="center">War (or peace)</h1>
+  <h1 align="center">kapusSkate</h1>
 
   <p align="center">
-    A game I've built as part of the Turing School of Software and Design curiculum!
+      Passion project to manage attendance to a weekly private drop-in hockey session
     <br />
     <a href="https://github.com/marchandmd/kapusSkate"><strong>Explore the docs »</strong></a>
     <br />
@@ -47,7 +47,6 @@
 </div>
 
 <!-- TABLE OF CONTENTS -->
-<details>
   <summary>Table of Contents</summary>
   <ol>
     <li>
@@ -70,21 +69,22 @@
     <li><a href="#contact">Contact</a></li>
     <li><a href="#acknowledgments">Acknowledgments</a></li>
   </ol>
-</details>
 
 <!-- ABOUT THE PROJECT -->
 
 ## About The Project
 
-A take on the classic card game
+This is a green-field tool being built to centralize the management of attendance by hockey players to a recurring weekly private skate.
 
-What did I learn building this:
+The goal is to create a monolithic, scalable app that allows players/users to log in with an existing account from Google using Oauth, see a list of upcoming skates.
 
-- Principles of OOP
-- Git and github workflows
-- RSpec and TDD
+Ultimately, the idea is to enable potential skaters to see who will be in attendance to allow them to make informed decisions about whether they themselves should attend or not.
 
+Stretch goals for this project are to create a mobile version, as well as enable payments to the host of the skate.
 
+The MVP will be limited to a single recurring event, at one rink. However, future iterations will include scalability to include multiple hosts to be able to organize multiple events.
+
+Additional stretch goals include: notification/confirmation via email and/or text message; Messaging in the form of message boards.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -101,10 +101,10 @@ What did I learn building this:
 
 ### Prerequisites
 
-n/a
+ruby v 2.7.2
+rails v 5.2.8
 
 ### Installation
-
 
 1. Clone the repo
     ```sh
@@ -121,12 +121,7 @@ n/a
 
 ## Usage
 
-It's pretty straight-forward to use this. Once it's on your machine and you `cd` into the repo, in the commandline run
-
-```bs
-ruby kapusSkate_runner.rb
-```
-
+This application will be live. Stay tuned.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -134,10 +129,9 @@ ruby kapusSkate_runner.rb
 
 ## Roadmap
 
-- README
-- [x] Add back to top links
-- [ ] images and/or video
-- [ ] code snippets
+-   README
+- [ ] Deploy
+- [ ]
 
 See the [open issues](https://github.com/marchandmd/kapusSkate/issues) for a full list of proposed features (and known issues).
 
@@ -163,7 +157,6 @@ Don't forget to give the project a star! Thanks again!
 <!-- LICENSE -->
 
 ## License
-
 
 no license has been added at thistime
 
