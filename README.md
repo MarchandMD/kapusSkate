@@ -131,7 +131,6 @@ This application will be live. Stay tuned.
 
 -   README
 - [ ] Deploy
-- [ ]
 
 See the [open issues](https://github.com/marchandmd/kapusSkate/issues) for a full list of proposed features (and known issues).
 
